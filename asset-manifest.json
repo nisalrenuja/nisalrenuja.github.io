@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.956fad23.chunk.css",
+    "main.js": "/static/js/main.0910462c.chunk.js",
+    "main.js.map": "/static/js/main.0910462c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.554504a0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.554504a0.js.map",
+    "static/js/2.90466aab.chunk.js": "/static/js/2.90466aab.chunk.js",
+    "static/js/2.90466aab.chunk.js.map": "/static/js/2.90466aab.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.7f0034d964d62fdc4ecd546851b52cc8.js": "/precache-manifest.7f0034d964d62fdc4ecd546851b52cc8.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.956fad23.chunk.css.map": "/static/css/main.956fad23.chunk.css.map",
+    "static/js/2.90466aab.chunk.js.LICENSE.txt": "/static/js/2.90466aab.chunk.js.LICENSE.txt",
+    "static/media/blog1.jpg": "/static/media/blog1.efdaaa9d.jpg",
+    "static/media/blog2.jpg": "/static/media/blog2.0cdcfc7b.jpg",
+    "static/media/fcsc.jpg": "/static/media/fcsc.b70dc19b.jpg",
+    "static/media/foss20_21.jpg": "/static/media/foss20_21.3d2ede15.jpg",
+    "static/media/foss21_22.jpg": "/static/media/foss21_22.b01253c5.jpg",
+    "static/media/minihack.png": "/static/media/minihack.a6bdd83d.png",
+    "static/media/mozillaDM.jpg": "/static/media/mozillaDM.51d28ff2.jpg",
+    "static/media/nisalrenuja.jpg": "/static/media/nisalrenuja.5dbb245c.jpg",
+    "static/media/resume.pdf": "/static/media/resume.4c682b9a.pdf",
+    "static/media/royalcollege.png": "/static/media/royalcollege.c384303c.png",
+    "static/media/sfd18.jpg": "/static/media/sfd18.338c61ff.jpg",
+    "static/media/sliit.png": "/static/media/sliit.25befdad.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.554504a0.js",
+    "static/js/2.90466aab.chunk.js",
+    "static/css/main.956fad23.chunk.css",
+    "static/js/main.0910462c.chunk.js"
+  ]
+}
