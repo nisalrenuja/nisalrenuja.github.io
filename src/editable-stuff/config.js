@@ -56,7 +56,7 @@ const about = {
   message:
     "My name is Nisal Renuja Palliyaguru. I’m following a Software Engineering Degree at SLIIT. I focus on UI/UX Design, Web Design, and Programming. In my free time I like working on open source projects.",
   resume:
-    "https://drive.google.com/file/d/1W8Tcy0whv202wY63aQO-IbBO1uT6sUnm/view?usp=sharing",
+    "https://drive.google.com/file/d/1n_7oByI6e1YXkB7Z9oBXJNhLGs5nirUF/view?usp=sharing",
 };
 
 // PROJECTS SECTION
