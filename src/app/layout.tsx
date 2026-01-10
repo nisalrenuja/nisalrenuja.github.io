@@ -8,35 +8,90 @@ import { PROFILE } from "@/lib/data";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+const siteUrl = "https://nisalrenuja.github.io";
+const ogImage = `${siteUrl}/images/profile-pic.png`;
+
 export const metadata: Metadata = {
-  title: `${PROFILE.name} - ${PROFILE.title}`,
-  description: PROFILE.about,
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${PROFILE.name} - ${PROFILE.title}`,
+    template: `%s | ${PROFILE.name}`,
+  },
+  description: PROFILE.about.split("\n\n")[0],
   keywords: [
+    "Nisal Palliyaguru",
     "Software Engineer",
+    "Full Stack Developer",
     "Cloud Native",
-    "AWS",
-    "React",
+    "AWS Solutions Architect",
+    "React Developer",
     "Next.js",
     "TypeScript",
-    "Go",
-    "DevOps",
+    "Go Developer",
+    "DevOps Engineer",
     "Microservices",
     "Data Science",
-    "AI",
+    "Machine Learning",
+    "AI Engineer",
+    "Sri Lanka Software Engineer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Kubernetes",
+    "Docker",
+    "NestJS",
   ],
   authors: [{ name: PROFILE.name, url: PROFILE.socials.github }],
+  creator: PROFILE.name,
+  publisher: PROFILE.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: "/images/logo-pic.png",
+    shortcut: "/images/logo-pic.png",
+    apple: "/images/logo-pic.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
-    title: `${PROFILE.name} - ${PROFILE.title}`,
-    description: PROFILE.about,
     type: "website",
     locale: "en_US",
+    url: siteUrl,
+    title: `${PROFILE.name} - ${PROFILE.title}`,
+    description: PROFILE.about.split("\n\n")[0],
     siteName: PROFILE.name,
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${PROFILE.name} - Software Engineer Portfolio`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${PROFILE.name} - ${PROFILE.title}`,
-    description: PROFILE.about,
+    description: PROFILE.about.split("\n\n")[0],
+    creator: "@nisalrenuja", // Update with your Twitter handle if you have one
+    images: [ogImage],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -51,9 +106,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const theme = localStorage.getItem('theme') ||
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.setAttribute('data-theme', 'dark');
               })();
             `,
           }}
@@ -65,26 +118,89 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: PROFILE.name,
+              givenName: PROFILE.firstName,
+              familyName: PROFILE.lastName,
               jobTitle: PROFILE.title,
+              description: PROFILE.about.split("\n\n")[0],
               email: PROFILE.contact.email,
               telephone: PROFILE.contact.phone,
-              url: "https://nisalrenuja.com",
-              sameAs: [PROFILE.socials.github, PROFILE.socials.linkedin],
+              url: siteUrl,
+              image: ogImage,
+              sameAs: [
+                PROFILE.socials.github,
+                PROFILE.socials.linkedin,
+              ],
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Dehiwala",
                 addressRegion: "Western Province",
                 addressCountry: "LK",
               },
+              alumniOf: [
+                {
+                  "@type": "EducationalOrganization",
+                  name: "University of Moratuwa",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Moratuwa",
+                    addressCountry: "LK",
+                  },
+                },
+                {
+                  "@type": "EducationalOrganization",
+                  name: "Curtin University",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Perth",
+                    addressCountry: "AU",
+                  },
+                },
+              ],
+              knowsAbout: [
+                "Software Engineering",
+                "Cloud Computing",
+                "AWS",
+                "Microservices",
+                "DevOps",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Go",
+                "Python",
+                "Data Science",
+                "Machine Learning",
+                "Kubernetes",
+                "Docker",
+              ],
+              hasCredential: [
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  name: "AWS Academy Graduate – Cloud Data Pipeline Builder",
+                  credentialCategory: "certificate",
+                  recognizedBy: {
+                    "@type": "Organization",
+                    name: "Amazon Web Services",
+                  },
+                },
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  name: "AWS Academy Graduate – Data Engineering",
+                  credentialCategory: "certificate",
+                  recognizedBy: {
+                    "@type": "Organization",
+                    name: "Amazon Web Services",
+                  },
+                },
+              ],
             }),
           }}
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider>
+        {/* <ThemeProvider> */}
           <Navigation />
           {children}
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

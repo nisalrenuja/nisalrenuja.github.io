@@ -18,7 +18,7 @@ export const PROFILE = {
 
 Currently pursuing an MSc in Data Science and AI at the University of Moratuwa, focusing on big data analytics, machine learning, and cloud computing. Adept at leading teams, solving complex technical challenges, and optimizing system performance.`,
   cvUrl: "/cv/Nisal_Renuja_Palliyaguru.pdf",
-  image: "/images/profile/portrait.jpg",
+  image: "/images/profile-pic.png",
 };
 
 export const SKILLS = {
@@ -98,7 +98,7 @@ export const EXPERIENCE = [
     company: "Derana Macroentertainment - Macro Labs",
     period: "Dec 2022 – Jan 2024",
     location: "Sri Lanka",
-    locationType: "On-site",
+    locationType: "Hybrid",
     logo: "/images/companies/derana-logo.png",
     achievements: [
       "Developed high-traffic web applications for news platforms, optimizing performance and scalability.",
@@ -114,7 +114,7 @@ export const EXPERIENCE = [
     company: "Insharp Technologies",
     period: "Jan 2022 – Jun 2022",
     location: "Maharagama, Sri Lanka",
-    locationType: "On-site",
+    locationType: "Hybrid",
     logo: "/images/companies/insharp-logo.png",
     achievements: [
       "Contributed to a professional networking platform, improving user engagement.",
@@ -149,7 +149,7 @@ export const PROJECTS = [
     description:
       "Developed a tri-language news platform for Ada Derana 24x7 with scalable web apps, dashboards, and backend architecture. Designed AWS-based infrastructure to deploy test environments, ensuring reliable and seamless content management.",
     technologies: ["React.js", "Tailwind CSS", "NestJS", "Prisma ORM", "PostgreSQL", "AWS"],
-    link: "https://adaderana.lk/24x7",
+    // link: "https://adaderana.lk/24x7",
   },
   {
     title: "ImpactNet – Online Platform for Civil Societies to Publish and Collaborate",
@@ -184,7 +184,7 @@ export const PROJECTS = [
     description:
       "Developed three news platforms with dashboards for article management, integrating cloud-based backends for real-time updates. Enabled analytics for insights and optimizations. Recognized in BestWeb.lk Awards 2024 with Merit awards.",
     technologies: ["Next.js", "Tailwind CSS", "Node.js", "Firebase", "Google Analytics"],
-    link: "https://themorning.lk",
+    // link: "https://themorning.lk",
   },
   {
     title: "TopADS – Sri Lanka's Largest Video-Based Classified Advertisement Platform",

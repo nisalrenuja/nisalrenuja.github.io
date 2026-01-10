@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
@@ -42,9 +43,16 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         <Link
           href="#home"
-          className="text-xl font-bold tracking-tighter hover:text-accent transition-colors"
+          className="flex items-center hover:opacity-80 transition-opacity"
         >
-          NP.
+          <Image
+            src="/images/logo-pic.png"
+            alt="NP."
+            width={40}
+            height={40}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -58,12 +66,12 @@ export default function Navigation() {
               {item.name}
             </Link>
           ))}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
 
         {/* Mobile Nav - Theme Toggle and Hamburger */}
         <div className="md:hidden flex items-center gap-3">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"

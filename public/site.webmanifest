@@ -1,0 +1,22 @@
+{
+  "name": "Nisal Palliyaguru - Software Engineer",
+  "short_name": "Nisal Renuja",
+  "description": "Software Engineer with 4+ years of experience in cloud-native development, microservices, and DevOps",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#4F46E5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo-pic.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-pic.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

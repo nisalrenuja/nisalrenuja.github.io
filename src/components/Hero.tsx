@@ -92,19 +92,14 @@ export default function Hero() {
         >
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-hover/20 rounded-3xl rotate-6"></div>
-            <div className="relative w-full h-full bg-muted rounded-3xl overflow-hidden border-4 border-border shadow-2xl">
-              {/* Placeholder for portrait image */}
-              <div className="w-full h-full bg-gradient-to-br from-muted to-background flex items-center justify-center text-muted-foreground">
-                <span className="text-6xl font-bold">{PROFILE.firstName[0]}{PROFILE.lastName[0]}</span>
-              </div>
-              {/* Uncomment when you have a portrait image */}
-              {/* <Image
+            <div className="relative w-full h-full bg-transparent rounded-3xl overflow-hidden shadow-2xl">
+              <Image
                 src={PROFILE.image}
                 alt={PROFILE.name}
                 fill
                 className="object-cover"
                 priority
-              /> */}
+              />
             </div>
           </div>
         </motion.div>
