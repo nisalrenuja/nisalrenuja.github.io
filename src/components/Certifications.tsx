@@ -8,15 +8,15 @@ export default function Certifications() {
   return (
     <Section id="certifications" className="py-16 md:py-24">
       <div className="grid md:grid-cols-3 gap-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground md:col-span-1">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground md:col-span-1">
           Certifications
         </h2>
 
         <div className="md:col-span-2">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {CERTIFICATIONS.map((cert, index) => (
+            {CERTIFICATIONS.map((cert) => (
               <div
-                key={index}
+                key={`cert-${cert.issuer.replace(/\s/g, '-')}-${cert.date}-${cert.title.slice(0, 20).replace(/\s/g, '-')}`}
                 className="p-6 rounded-2xl bg-background border border-border hover:border-accent hover:shadow-lg transition-all group"
               >
                 <div className="flex items-start gap-4">

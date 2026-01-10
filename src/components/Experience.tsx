@@ -8,14 +8,14 @@ export default function Experience() {
   return (
     <Section id="experience" className="py-16 md:py-24 bg-muted/30">
       <div className="grid md:grid-cols-3 gap-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground md:col-span-1">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground md:col-span-1">
           Experience
         </h2>
 
         <div className="md:col-span-2 space-y-12">
-          {EXPERIENCE.map((job, index) => (
+          {EXPERIENCE.map((job) => (
             <div
-              key={index}
+              key={`job-${job.company.replace(/\s/g, '-')}-${job.role.replace(/\s/g, '-')}-${job.period.replace(/\s/g, '')}`}
               className="relative pl-8 border-l-2 border-border hover:border-accent transition-colors"
             >
               <span className="absolute left-[-6px] top-1.5 h-3 w-3 rounded-full bg-accent ring-4 ring-background border border-border" />
@@ -44,7 +44,7 @@ export default function Experience() {
 
               <ul className="space-y-2.5 text-muted-foreground mb-4">
                 {job.achievements.map((achievement, i) => (
-                  <li key={i} className="flex gap-3 text-sm leading-relaxed">
+                  <li key={`${job.company.replace(/\s/g, '-')}-achievement-${i}-${achievement.slice(0, 20).replace(/\s/g, '-')}`} className="flex gap-3 text-sm leading-relaxed">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                     {achievement}
                   </li>

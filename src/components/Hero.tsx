@@ -6,39 +6,25 @@ import { PROFILE } from "@/lib/data";
 import { CVDownloadButton } from "./CVDownloadButton";
 import { SocialLinks } from "./SocialLinks";
 import { ScrollIndicator } from "./ScrollIndicator";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import { staggerContainerVariants, fadeInUpVariants, scaleInVariants } from "@/lib/animations";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto pt-20"
+      aria-label="Introduction"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-7xl 2xl:max-w-[1600px] mx-auto pt-20"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Column - Text Content */}
         <motion.div
-          variants={container}
+          variants={staggerContainerVariants}
           initial="hidden"
           animate="show"
           className="space-y-6 order-2 md:order-1"
         >
           {/* Badge */}
-          <motion.div variants={item}>
+          <motion.div variants={fadeInUpVariants}>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium border border-border">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -50,59 +36,61 @@ export default function Hero() {
 
           {/* Name */}
           <motion.h1
-            variants={item}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground"
+            variants={fadeInUpVariants}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-foreground"
           >
             {PROFILE.name}
           </motion.h1>
 
           {/* Title/Tagline */}
           <motion.h2
-            variants={item}
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground"
+            variants={fadeInUpVariants}
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-muted-foreground"
           >
             {PROFILE.tagline.split(" | ")[0]}
           </motion.h2>
 
           {/* About */}
           <motion.p
-            variants={item}
+            variants={fadeInUpVariants}
             className="max-w-xl text-lg text-muted-foreground leading-relaxed"
           >
             {PROFILE.about.split("\n\n")[0]}
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div variants={item} className="pt-4 flex flex-col sm:flex-row gap-4">
+          <motion.div variants={fadeInUpVariants} className="pt-4 flex flex-col sm:flex-row gap-4">
             <CVDownloadButton variant="primary" />
           </motion.div>
 
           {/* Social Links */}
-          <motion.div variants={item} className="pt-2">
+          <motion.div variants={fadeInUpVariants} className="pt-2">
             <SocialLinks size="md" />
           </motion.div>
         </motion.div>
 
         {/* Right Column - Portrait Image */}
-        <motion.div
+        <motion.figure
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="order-1 md:order-2 flex justify-center md:justify-end"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem]">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-hover/20 rounded-3xl rotate-6"></div>
             <div className="relative w-full h-full bg-transparent rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src={PROFILE.image}
                 alt={PROFILE.name}
                 fill
+                sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 320px, (max-width: 1280px) 384px, 448px"
                 className="object-cover"
                 priority
               />
             </div>
           </div>
-        </motion.div>
+          <figcaption className="sr-only">{PROFILE.name} - {PROFILE.title}</figcaption>
+        </motion.figure>
       </div>
 
       {/* Scroll Indicator */}

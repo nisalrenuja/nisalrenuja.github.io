@@ -1,15 +1,21 @@
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import { PROFILE } from "@/lib/data";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const siteUrl = "https://nisalrenuja.github.io";
 const ogImage = `${siteUrl}/images/profile-pic.png`;
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -197,10 +203,8 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        {/* <ThemeProvider> */}
-          <Navigation />
-          {children}
-        {/* </ThemeProvider> */}
+        <Navigation />
+        {children}
       </body>
     </html>
   );

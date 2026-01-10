@@ -8,14 +8,14 @@ export default function Education() {
   return (
     <Section id="education" className="py-16 md:py-24">
       <div className="grid md:grid-cols-3 gap-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground md:col-span-1">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground md:col-span-1">
           Education
         </h2>
 
         <div className="md:col-span-2 space-y-8">
-          {EDUCATION.map((edu, index) => (
+          {EDUCATION.map((edu) => (
             <div
-              key={index}
+              key={`edu-${edu.institution.replace(/\s/g, '-')}-${edu.degree.slice(0, 30).replace(/\s/g, '-')}`}
               className="p-6 rounded-2xl bg-muted/50 border border-border hover:border-accent transition-all"
             >
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2 gap-2">

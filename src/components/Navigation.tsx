@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -30,6 +29,12 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleMenuKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav
@@ -66,15 +71,14 @@ export default function Navigation() {
               {item.name}
             </Link>
           ))}
-          {/* <ThemeToggle /> */}
         </div>
 
-        {/* Mobile Nav - Theme Toggle and Hamburger */}
+        {/* Mobile Nav - Hamburger Menu */}
         <div className="md:hidden flex items-center gap-3">
-          {/* <ThemeToggle /> */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
             className="p-2"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -90,15 +94,18 @@ export default function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
+            onKeyDown={handleMenuKeyDown}
+            role="navigation"
+            aria-label="Mobile navigation"
             className="md:hidden overflow-hidden bg-background border-t border-border"
           >
-            <div className="p-6 flex flex-col gap-4 max-h-[calc(100vh-80px)] overflow-y-auto">
-              {navItems.map((item, index) => (
+            <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-4 max-h-[calc(100dvh-5rem)] supports-[height:100svh]:max-h-[calc(100svh-5rem)] landscape:max-h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain">
+              {navItems.map((item, idx) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: idx * 0.05 }}
                 >
                   <Link
                     href={item.href}

@@ -67,7 +67,6 @@ export const EXPERIENCE = [
     period: "Mar 2025 – Present",
     location: "Sri Lanka",
     locationType: "Remote",
-    logo: "/images/companies/econsulate-logo.png",
     achievements: [
       "Led the development of a real-time dashboard to visualize sensor and detection data from UAVs and UGVs developed by the Xavier AI team.",
       "Engineered an automated talent acquisition solution utilizing OCR and the Gemini API to extract unstructured data from resumes and populate candidate profiles.",
@@ -84,7 +83,6 @@ export const EXPERIENCE = [
     period: "Jan 2024 – Feb 2025",
     location: "Sri Lanka",
     locationType: "Hybrid",
-    logo: "/images/companies/derana-logo.png",
     achievements: [
       "Led development of a scalable social media platform for volunteers, focusing on data management, containerized deployments, and backend scalability.",
       "Designed cloud-native architectures using Go, NestJS, and AWS for scalability.",
@@ -99,7 +97,6 @@ export const EXPERIENCE = [
     period: "Dec 2022 – Jan 2024",
     location: "Sri Lanka",
     locationType: "Hybrid",
-    logo: "/images/companies/derana-logo.png",
     achievements: [
       "Developed high-traffic web applications for news platforms, optimizing performance and scalability.",
       "Built a cloud-based content delivery system with a dashboard for scheduling and tracking.",
@@ -115,7 +112,6 @@ export const EXPERIENCE = [
     period: "Jan 2022 – Jun 2022",
     location: "Maharagama, Sri Lanka",
     locationType: "Hybrid",
-    logo: "/images/companies/insharp-logo.png",
     achievements: [
       "Contributed to a professional networking platform, improving user engagement.",
       "Worked in agile teams, enhancing collaboration, planning, and time management.",
