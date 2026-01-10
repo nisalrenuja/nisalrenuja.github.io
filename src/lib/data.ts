@@ -149,7 +149,7 @@ export const PROJECTS = [
     description:
       "Developed a tri-language news platform for Ada Derana 24x7 with scalable web apps, dashboards, and backend architecture. Designed AWS-based infrastructure to deploy test environments, ensuring reliable and seamless content management.",
     technologies: ["React.js", "Tailwind CSS", "NestJS", "Prisma ORM", "PostgreSQL", "AWS"],
-    // link: "https://adaderana.lk/24x7",
+    link: undefined,
   },
   {
     title: "ImpactNet – Online Platform for Civil Societies to Publish and Collaborate",
@@ -168,6 +168,7 @@ export const PROJECTS = [
       "AWS",
       "Kubernetes",
     ],
+    link: undefined,
   },
   {
     title: "Election Data Visualization – Real-Time Dashboard and Web Application",
@@ -176,6 +177,7 @@ export const PROJECTS = [
     description:
       "Built an interactive real-time dashboard to visualize Sri Lanka's election data with seamless data updates. Designed an intuitive admin dashboard for real-time reader engagement and efficient data handling.",
     technologies: ["React.js", "Tailwind CSS", "Firebase", "AWS"],
+    link: undefined,
   },
   {
     title: "TheMorningLK / ArunaLK / ThamilanLK – Liberty Publishers",
@@ -184,7 +186,7 @@ export const PROJECTS = [
     description:
       "Developed three news platforms with dashboards for article management, integrating cloud-based backends for real-time updates. Enabled analytics for insights and optimizations. Recognized in BestWeb.lk Awards 2024 with Merit awards.",
     technologies: ["Next.js", "Tailwind CSS", "Node.js", "Firebase", "Google Analytics"],
-    // link: "https://themorning.lk",
+    link: undefined,
   },
   {
     title: "TopADS – Sri Lanka's Largest Video-Based Classified Advertisement Platform",
@@ -193,6 +195,7 @@ export const PROJECTS = [
     description:
       "Developed a video-based classified advertisement platform with an admin dashboard for ad management. Built a scalable backend for reliable data handling, analytics, and performance optimization.",
     technologies: ["React.js", "Tailwind CSS", "Express.js", "PostgreSQL", "Prisma ORM", "AWS"],
+    link: undefined,
   },
 ];
 
