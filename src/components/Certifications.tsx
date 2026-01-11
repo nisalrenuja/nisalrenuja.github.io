@@ -14,9 +14,9 @@ export default function Certifications() {
 
         <div className="md:col-span-2">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {CERTIFICATIONS.map((cert) => (
+            {CERTIFICATIONS.map((cert, index) => (
               <div
-                key={`cert-${cert.issuer.replace(/\s/g, '-')}-${cert.date}-${cert.title.slice(0, 20).replace(/\s/g, '-')}`}
+                key={`cert-${index}-${cert.issuer.replace(/\s/g, '-')}-${cert.title.replace(/\s/g, '-')}`}
                 className="p-6 rounded-2xl bg-background border border-border hover:border-accent hover:shadow-lg transition-all group"
               >
                 <div className="flex items-start gap-4">

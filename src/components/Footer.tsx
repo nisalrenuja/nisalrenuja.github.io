@@ -18,11 +18,11 @@ const navLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Left - Brand */}
-          <div>
-            <Link href="#home" className="text-2xl font-bold tracking-tighter hover:text-accent transition-colors">
+          <div className="sm:col-span-2 md:col-span-1">
+            <Link href="#home" className="text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors">
               {PROFILE.name}
             </Link>
             <p className="text-muted-foreground mt-2 text-sm">
@@ -32,13 +32,13 @@ export default function Footer() {
 
           {/* Center - Navigation */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-foreground mb-3 sm:mb-4">Quick Links</h3>
             <div className="grid grid-cols-2 gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                  className="text-sm text-muted-foreground hover:text-accent transition-colors py-1"
                 >
                   {link.name}
                 </Link>
@@ -48,8 +48,8 @@ export default function Footer() {
 
           {/* Right - Contact & Social */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Connect</h3>
-            <div className="space-y-4">
+            <h3 className="font-semibold text-foreground mb-3 sm:mb-4">Connect</h3>
+            <div className="space-y-3 sm:space-y-4">
               <SocialLinks size="sm" />
               <CVDownloadButton variant="secondary" />
             </div>
@@ -57,8 +57,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom - Copyright */}
-        <div className="pt-8 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="pt-6 sm:pt-8 border-t border-border text-center">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             © {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
           </p>
         </div>

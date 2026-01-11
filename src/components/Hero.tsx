@@ -13,7 +13,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Introduction"
-      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-7xl 2xl:max-w-[1600px] mx-auto pt-20"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-7xl 2xl:max-w-[1600px] mx-auto pt-28"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Column - Text Content */}
