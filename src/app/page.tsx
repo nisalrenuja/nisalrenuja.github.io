@@ -8,6 +8,7 @@ import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BlogSection from "@/components/BlogSection";
+import ResearchSection from "@/components/ResearchSection";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Education />
       <Projects />
       <Certifications />
+      <ResearchSection />
       <BlogSection />
       <Contact />
       <Footer />
