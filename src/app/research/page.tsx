@@ -131,7 +131,7 @@ export default function ResearchPage() {
         )}
 
         {/* Upcoming */}
-        <div className="mt-16">
+        {/* <div className="mt-16">
           <h2 className="text-xl font-bold text-foreground mb-2">Coming Soon</h2>
           <p className="text-sm text-muted-foreground mb-6">More deep dives in the pipeline.</p>
           <div className="grid md:grid-cols-3 gap-4">
@@ -148,7 +148,7 @@ export default function ResearchPage() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       <Footer />

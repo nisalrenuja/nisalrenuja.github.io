@@ -138,7 +138,7 @@ export default function XAlgorithmPage() {
                       X For You Algorithm
                     </span>
                   </li>
-                  <li>
+                  {/* <li>
                     <span className="flex text-sm text-muted-foreground/50 px-3 py-2 rounded-lg cursor-default">
                       YouTube Ranking <span className="ml-auto text-[10px] bg-muted rounded px-1.5 py-0.5">Soon</span>
                     </span>
@@ -147,7 +147,7 @@ export default function XAlgorithmPage() {
                     <span className="flex text-sm text-muted-foreground/50 px-3 py-2 rounded-lg cursor-default">
                       TikTok FYP <span className="ml-auto text-[10px] bg-muted rounded px-1.5 py-0.5">Soon</span>
                     </span>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </nav>
