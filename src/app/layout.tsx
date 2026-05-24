@@ -1,4 +1,3 @@
-
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -8,10 +7,10 @@ import { PROFILE } from "@/lib/data";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const siteUrl = "https://nisalrenuja.github.io";
-const ogImage = `${siteUrl}/images/profile-pic.png`;
+const ogImage = `${siteUrl}/images/profile-pic.jpg`;
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
@@ -132,10 +131,7 @@ export default function RootLayout({
               telephone: PROFILE.contact.phone,
               url: siteUrl,
               image: ogImage,
-              sameAs: [
-                PROFILE.socials.github,
-                PROFILE.socials.linkedin,
-              ],
+              sameAs: [PROFILE.socials.github, PROFILE.socials.linkedin],
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Dehiwala",

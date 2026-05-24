@@ -18,7 +18,7 @@ export const PROFILE = {
 
 Currently pursuing an MSc in Data Science and AI at the University of Moratuwa, focusing on big data analytics, machine learning, and cloud computing. Adept at leading teams, solving complex technical challenges, and optimizing system performance.`,
   cvUrl: "/cv/Nisal_Renuja_Palliyaguru.pdf",
-  image: "/images/profile-pic.png",
+  image: "/images/profile-pic.jpg",
 };
 
 export const SKILLS = {
@@ -47,9 +47,16 @@ export const SKILLS = {
     "CI/CD Pipelines",
     "Serverless Architecture",
   ],
-  Caching: ["Redis (Single Instance, Redis Cluster)", "Firebase Realtime Database"],
+  Caching: [
+    "Redis (Single Instance, Redis Cluster)",
+    "Firebase Realtime Database",
+  ],
   "Frontend Technologies": ["Tailwind CSS", "Google Analytics", "Firebase"],
-  "Data Engineering & AI": ["Data Pipelines", "Big Data Analytics", "Machine Learning"],
+  "Data Engineering & AI": [
+    "Data Pipelines",
+    "Big Data Analytics",
+    "Machine Learning",
+  ],
   "Version Control & Tools": [
     "Git",
     "GitHub",
@@ -144,11 +151,19 @@ export const PROJECTS = [
     period: "Jan 2024 – Present",
     description:
       "Developed a tri-language news platform for Ada Derana 24x7 with scalable web apps, dashboards, and backend architecture. Designed AWS-based infrastructure to deploy test environments, ensuring reliable and seamless content management.",
-    technologies: ["React.js", "Tailwind CSS", "NestJS", "Prisma ORM", "PostgreSQL", "AWS"],
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "NestJS",
+      "Prisma ORM",
+      "PostgreSQL",
+      "AWS",
+    ],
     link: undefined,
   },
   {
-    title: "ImpactNet – Online Platform for Civil Societies to Publish and Collaborate",
+    title:
+      "ImpactNet – Online Platform for Civil Societies to Publish and Collaborate",
     company: "Derana Macroentertainment - Macro Labs",
     period: "May 2024 – Jan 2025",
     description:
@@ -167,7 +182,8 @@ export const PROJECTS = [
     link: undefined,
   },
   {
-    title: "Election Data Visualization – Real-Time Dashboard and Web Application",
+    title:
+      "Election Data Visualization – Real-Time Dashboard and Web Application",
     company: "Derana Macroentertainment - Macro Labs",
     period: "Jul 2024 – Dec 2024",
     description:
@@ -181,16 +197,30 @@ export const PROJECTS = [
     period: "Dec 2022 – Jan 2024",
     description:
       "Developed three news platforms with dashboards for article management, integrating cloud-based backends for real-time updates. Enabled analytics for insights and optimizations. Recognized in BestWeb.lk Awards 2024 with Merit awards.",
-    technologies: ["Next.js", "Tailwind CSS", "Node.js", "Firebase", "Google Analytics"],
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Firebase",
+      "Google Analytics",
+    ],
     link: undefined,
   },
   {
-    title: "TopADS – Sri Lanka's Largest Video-Based Classified Advertisement Platform",
+    title:
+      "TopADS – Sri Lanka's Largest Video-Based Classified Advertisement Platform",
     company: "Derana Macroentertainment - Macro Labs",
     period: "Mar 2023 – Sep 2023",
     description:
       "Developed a video-based classified advertisement platform with an admin dashboard for ad management. Built a scalable backend for reliable data handling, analytics, and performance optimization.",
-    technologies: ["React.js", "Tailwind CSS", "Express.js", "PostgreSQL", "Prisma ORM", "AWS"],
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma ORM",
+      "AWS",
+    ],
     link: undefined,
   },
 ];
