@@ -12,7 +12,7 @@ const steps = [
     color: "#6366f1",
     summary: "Load everything about you before fetching a single post.",
     details: [
-      "Your engagement history — likes, replies, reposts, dwell time",
+      "Your engagement history: likes, replies, reposts, dwell time",
       "Accounts you follow, mute, and block",
       "Topics you subscribe to",
       "Your IP address for geo-aware ranking",
@@ -35,10 +35,10 @@ for (hydrator, result) in hydrators.iter().zip(results) {
     color: "#8b5cf6",
     summary: "Collect raw candidates from two parallel sources simultaneously.",
     details: [
-      "Thunder — in-memory store, returns posts from accounts you follow with sub-millisecond latency",
-      "Phoenix — two-tower neural network finds posts from the global corpus you might engage with",
+      "Thunder: in-memory store, returns posts from accounts you follow with sub-millisecond latency",
+      "Phoenix: two-tower neural network finds posts from the global corpus you might engage with",
       "Both sources run in parallel and together produce hundreds of candidates",
-      "Thunder reads from Kafka in real time — no database hit required",
+      "Thunder reads from Kafka in real time, so no database hit is required",
     ],
     code: `pub struct ThunderServiceImpl {
     post_store: Arc<PostStore>,        // in-memory store
@@ -76,24 +76,24 @@ for (hydrator, result) in hydrators.iter().zip(results) {
     title: "Pre-Scoring Filters",
     icon: Filter,
     color: "#f59e0b",
-    summary: "Sequential filters narrow the candidate set — anything removed never reaches scoring.",
+    summary: "Sequential filters narrow the candidate set; anything removed never reaches scoring.",
     details: [
-      "DropDuplicatesFilter — same post ID seen more than once",
-      "CoreDataHydrationFilter — posts that failed to load metadata",
-      "AgeFilter — posts older than MAX_POST_AGE threshold",
-      "SelfTweetFilter — your own posts (struct name, source uses 'tweet' internally)",
-      "RetweetDeduplicationFilter — keeps only the first occurrence of a tweet ID whether original or retweet",
-      "IneligibleSubscriptionFilter — paywalled content you can't access",
-      "PreviouslySeenPostsFilter — Bloom filter check against your impression history",
-      "PreviouslySeenPostsBackupFilter — secondary seen-post check for resilience",
-      "PreviouslyServedPostsFilter — posts already served in this session",
-      "MutedKeywordFilter — posts containing your muted words or phrases",
-      "AuthorSocialgraphFilter — posts from blocked/muted authors (also catches quote/retweet chains involving blocked users)",
-      "VideoFilter — removes video posts that don't meet eligibility criteria",
-      "TopicIdsFilter — removes posts that conflict with your topic preferences",
-      "NewUserTopicIdsFilter — additional topic filtering for new accounts",
+      "DropDuplicatesFilter: same post ID seen more than once",
+      "CoreDataHydrationFilter: posts that failed to load metadata",
+      "AgeFilter: posts older than MAX_POST_AGE threshold",
+      "SelfTweetFilter: your own posts (struct name, source uses 'tweet' internally)",
+      "RetweetDeduplicationFilter: keeps only the first occurrence of a tweet ID whether original or retweet",
+      "IneligibleSubscriptionFilter: paywalled content you can't access",
+      "PreviouslySeenPostsFilter: Bloom filter check against your impression history",
+      "PreviouslySeenPostsBackupFilter: secondary seen-post check for resilience",
+      "PreviouslyServedPostsFilter: posts already served in this session",
+      "MutedKeywordFilter: posts containing your muted words or phrases",
+      "AuthorSocialgraphFilter: posts from blocked/muted authors (also catches quote/retweet chains involving blocked users)",
+      "VideoFilter: removes video posts that don't meet eligibility criteria",
+      "TopicIdsFilter: removes posts that conflict with your topic preferences",
+      "NewUserTopicIdsFilter: additional topic filtering for new accounts",
     ],
-    code: `// phoenix_candidate_pipeline.rs — actual filter vec in order:
+    code: `// phoenix_candidate_pipeline.rs, actual filter vec in order:
 let filters: Vec<Box<dyn Filter<...>>> = vec![
     Box::new(DropDuplicatesFilter),
     Box::new(CoreDataHydrationFilter),
@@ -119,9 +119,9 @@ let filters: Vec<Box<dyn Filter<...>>> = vec![
     color: "#10b981",
     summary: "Three scorers run sequentially. RankingScorer is a consolidated scorer that handles weighting, author diversity, and OON adjustment all in one pass.",
     details: [
-      "PhoenixScorer — calls the Grok-based transformer via gRPC to get per-action engagement probabilities for each candidate",
-      "RankingScorer — consolidated scorer: computes weighted score from 22 action terms, applies author diversity decay, then applies OON weight factor",
-      "VMRanker — optional value model ranker (gated by EnableVMRanker flag) that calls an external DPP-based reranking service for final score adjustment",
+      "PhoenixScorer: calls the Grok-based transformer via gRPC to get per-action engagement probabilities for each candidate",
+      "RankingScorer: consolidated scorer: computes weighted score from 22 action terms, applies author diversity decay, then applies OON weight factor",
+      "VMRanker: optional value model ranker (gated by EnableVMRanker flag) that calls an external DPP-based reranking service for final score adjustment",
     ],
     code: `// phoenix_candidate_pipeline.rs
 let scorers: Vec<Box<dyn Scorer<...>>> = vec![
@@ -168,11 +168,11 @@ insert_who_to_follow(&mut blended, wtf_modules);`,
     color: "#ef4444",
     summary: "Three final safety filters run after the post-selection hydration pass before the feed is returned.",
     details: [
-      "VFFilter — removes posts flagged by the visibility filtering service (deleted, spam, violence, gore) at serve time",
-      "AncillaryVFFilter — applies brand-safety visibility filtering to ancillary content (quoted posts, linked media)",
-      "DedupConversationFilter — prevents multiple branches of the same conversation thread from all appearing together",
+      "VFFilter: removes posts flagged by the visibility filtering service (deleted, spam, violence, gore) at serve time",
+      "AncillaryVFFilter: applies brand-safety visibility filtering to ancillary content (quoted posts, linked media)",
+      "DedupConversationFilter: prevents multiple branches of the same conversation thread from all appearing together",
     ],
-    code: `// phoenix_candidate_pipeline.rs — actual post-selection filter vec:
+    code: `// phoenix_candidate_pipeline.rs, actual post-selection filter vec:
 let post_selection_filters: Vec<Box<dyn Filter<...>>> = vec![
     Box::new(VFFilter),
     Box::new(AncillaryVFFilter),
@@ -182,14 +182,14 @@ let post_selection_filters: Vec<Box<dyn Filter<...>>> = vec![
 // These run AFTER post-selection hydration
 // (VFCandidateHydrator, AdsBrandSafetyHydrator,
 //  MutualFollowJaccardHydrator, etc.) has completed`,
-    note: "VFFilter and AncillaryVFFilter catch safety signals that arrive after candidate retrieval — the hydrators run first, then these filters act on the hydrated signals.",
+    note: "VFFilter and AncillaryVFFilter catch safety signals that arrive after candidate retrieval; the hydrators run first, then these filters act on the hydrated signals.",
   },
   {
     num: 8,
     title: "Side Effects",
     icon: Activity,
     color: "#64748b",
-    summary: "Async fire-and-forget tasks run after the response is sent — affecting future feeds, not this one.",
+    summary: "Async fire-and-forget tasks run after the response is sent, affecting future feeds, not this one.",
     details: [
       "Publish seen post IDs to Kafka so future requests skip them",
       "Cache the request state in Redis",
@@ -204,7 +204,7 @@ let post_selection_filters: Vec<Box<dyn Filter<...>>> = vec![
         let _ = join_all(futures).await;
     });
 }`,
-    note: "Side effects are non-blocking — they do not delay the current response.",
+    note: "Side effects are non-blocking; they do not delay the current response.",
   },
 ];
 

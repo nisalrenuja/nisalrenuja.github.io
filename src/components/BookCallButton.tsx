@@ -49,8 +49,8 @@ export default function BookCallButton({
   label = BOOKING.ctaLabel,
   className,
 }: BookCallButtonProps) {
-  // Holds the in-flight (or settled) embed load, so hovering many times — or
-  // clicking before the hover-triggered load resolves — still only loads once.
+  // Holds the in-flight (or settled) embed load, so hovering many times, or
+  // clicking before the hover-triggered load resolves, still only loads once.
   const embedRef = useRef<ReturnType<typeof loadCalEmbed> | null>(null);
 
   const loadEmbed = useCallback(() => (embedRef.current ??= loadCalEmbed()), []);

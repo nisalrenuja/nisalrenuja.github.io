@@ -14,7 +14,7 @@ import { breadcrumbJsonLd, jsonLdProps, url } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `${PROFILE.name} — ${PROFILE.title} based in Colombo, Sri Lanka. Background, engineering experience, skills, education, and certifications.`,
+  description: `${PROFILE.name}, ${PROFILE.title} based in Colombo, Sri Lanka. Background, engineering experience, skills, education, and certifications.`,
   alternates: { canonical: url("/about") },
 };
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
                       {competition.position} · {competition.date}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {competition.description} — team {competition.team}
+                      {competition.description}, team {competition.team}
                     </p>
                   </div>
                 </div>

@@ -10,7 +10,7 @@ import { breadcrumbJsonLd, jsonLdProps, url } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Articles on software engineering, cloud architecture, AI systems, and the practical side of shipping software — by Nisal Palliyaguru.",
+    "Articles on software engineering, cloud architecture, AI systems, and the practical side of shipping software, by Nisal Palliyaguru.",
   alternates: { canonical: url("/blog") },
 };
 

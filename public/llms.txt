@@ -2,22 +2,22 @@
 
 > AI & Cloud-Native Software Engineer based in Colombo, Sri Lanka, working
 > remotely worldwide. Takes AI and cloud-native systems from prototype to
-> production — computer vision on edge devices, LLM-backed automation, and the
+> production: computer vision on edge devices, LLM-backed automation, and the
 > AWS and Kubernetes infrastructure underneath.
 
 Available for new projects. Book a 30-minute call: https://cal.com/nisalrenuja
 
 ## Services
 
-- **AI Product Build** — computer vision and LLM features shipped to real users.
+- **AI Product Build**: computer vision and LLM features shipped to real users.
   PyTorch/YOLO detection models exported to ONNX for edge inference, OCR and
   document-extraction pipelines, real-time inference with WebSocket streaming.
-- **Cloud & System Architecture** — microservice and multi-tenant architectures
+- **Cloud & System Architecture**: microservice and multi-tenant architectures
   in Go, NestJS and TypeScript; AWS infrastructure as code across EKS, RDS/Aurora,
   Lambda and CloudFormation; REST and GraphQL API design.
-- **Platform & DevOps** — Kubernetes and GitOps with Argo CD, CI/CD pipelines,
+- **Platform & DevOps**: Kubernetes and GitOps with Argo CD, CI/CD pipelines,
   containerisation, observability and cost tuning on existing AWS estates.
-- **Technical Advisory** — architecture and code review, build-vs-buy assessment
+- **Technical Advisory**: architecture and code review, build-vs-buy assessment
   for AI features, technical due diligence, team mentoring.
 
 ## Engagement
@@ -26,7 +26,7 @@ Available for new projects. Book a 30-minute call: https://cal.com/nisalrenuja
   retainers billed by the day, or short advisory engagements of a week or two.
 - Based in Colombo, Sri Lanka (GMT+5:30). Overlaps a full European working day,
   the Middle East and Asia, and early US mornings. Remote or hybrid throughout.
-- First call is 30 minutes and free — scoping and feasibility, not a sales pitch.
+- First call is 30 minutes and free: scoping and feasibility, not a sales pitch.
 
 ## Background
 

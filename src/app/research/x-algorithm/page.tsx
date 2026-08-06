@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import { breadcrumbJsonLd, jsonLdProps, url } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "X For You Feed Algorithm — Deep Dive",
+  title: "X For You Feed Algorithm: Deep Dive",
   description:
     "A from-scratch interactive breakdown of how X decides what appears in your For You feed, based on the open-sourced algorithm code.",
   alternates: { canonical: url("/research/x-algorithm") },
@@ -122,7 +122,7 @@ export default function XAlgorithmPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex gap-12 xl:gap-16">
 
-          {/* Left sidebar — doc nav */}
+          {/* Left sidebar: doc nav */}
           <aside className="hidden lg:block w-56 xl:w-64 flex-shrink-0">
             <nav className="sticky top-24" aria-label="Research navigation">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">Research</p>
@@ -198,9 +198,9 @@ export default function XAlgorithmPage() {
               <p className="text-lg text-muted-foreground mt-6 leading-relaxed">
                 Every time you open X, a complex multi-stage pipeline runs to decide what appears in your For You feed.
                 On January 20, 2026 xAI first open-sourced the algorithm at <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">github.com/xai-org/x-algorithm</code>,
-                then published a major update on May 15, 2026 — announced by Elon Musk with 30M+ views.
-                This article walks through every component of that latest release — architecture,
-                ML models, filtering logic — with interactive visualizations and real source code.
+                then published a major update on May 15, 2026, announced by Elon Musk with 30M+ views.
+                This article walks through every component of that latest release: architecture,
+                ML models, and filtering logic, with interactive visualizations and real source code.
               </p>
             </div>
 
@@ -215,7 +215,7 @@ export default function XAlgorithmPage() {
             <PipelineDiagram />
 
             <Callout type="info">
-              The entire pipeline executes on <strong>every single feed request</strong> — typically in under 150ms.
+              The entire pipeline executes on <strong>every single feed request</strong>, typically in under 150ms.
               Parallelism is used aggressively at every stage where dependencies allow.
             </Callout>
 
@@ -228,10 +228,10 @@ export default function XAlgorithmPage() {
             <Table
               headers={["Component", "Language", "Job"]}
               rows={[
-                ["Home Mixer", "Rust", "Orchestrates every pipeline stage — the conductor"],
+                ["Home Mixer", "Rust", "Orchestrates every pipeline stage (the conductor)"],
                 ["Thunder", "Rust", "In-memory real-time store of posts from accounts you follow"],
                 ["Phoenix", "Python / JAX", "ML retrieval + transformer ranking (Grok-based)"],
-                ["Grox", "Python", "Content understanding — spam, safety, topic classification"],
+                ["Grox", "Python", "Content understanding: spam, safety, topic classification"],
               ]}
             />
 
@@ -240,7 +240,7 @@ export default function XAlgorithmPage() {
             <p className="text-foreground/80 leading-relaxed mb-4">
               The <code className="text-accent bg-muted px-1.5 py-0.5 rounded text-sm">CandidatePipeline</code> trait
               in Rust defines the exact execution order across eight distinct stages. Use the interactive explorer below
-              to walk through each step — you will see the source code, the logic, and why each stage exists.
+              to walk through each step; you will see the source code, the logic, and why each stage exists.
             </p>
 
             <CodeBlock lang="rust">{`// candidate-pipeline/candidate_pipeline.rs
@@ -264,22 +264,22 @@ async fn execute(&self, query: Q) -> PipelineResult<Q, C> {
               <strong> ranking model</strong> (a full transformer) to score them.
             </p>
 
-            <SubHeading id="two-tower">Retrieval — Two-Tower Architecture</SubHeading>
+            <SubHeading id="two-tower">Retrieval: Two-Tower Architecture</SubHeading>
             <p className="text-foreground/80 leading-relaxed mb-4">
               The retrieval model uses a classic <strong>two-tower neural network</strong>:
             </p>
             <ul className="space-y-2 mb-4 text-foreground/80">
               <li className="flex gap-3 items-start">
                 <span className="text-accent font-bold mt-0.5">→</span>
-                <span><strong>User Tower</strong> — encodes your engagement history (post hashes + action types + product surface + dwell time) into a single dense vector.</span>
+                <span><strong>User Tower</strong>: encodes your engagement history (post hashes + action types + product surface + dwell time) into a single dense vector.</span>
               </li>
               <li className="flex gap-3 items-start">
                 <span className="text-accent font-bold mt-0.5">→</span>
-                <span><strong>Candidate Tower</strong> — encodes each post in the global corpus into a vector, normalized to the unit sphere for stable dot products.</span>
+                <span><strong>Candidate Tower</strong>: encodes each post in the global corpus into a vector, normalized to the unit sphere for stable dot products.</span>
               </li>
               <li className="flex gap-3 items-start">
                 <span className="text-accent font-bold mt-0.5">→</span>
-                <span><strong>Similarity Search</strong> — dot product between your user vector and all candidate vectors; top-K are returned to the ranking model.</span>
+                <span><strong>Similarity Search</strong>: dot product between your user vector and all candidate vectors; top-K are returned to the ranking model.</span>
               </li>
             </ul>
 
@@ -297,7 +297,7 @@ class CandidateTower(hk.Module):
         candidate_representation = candidate_representation / candidate_norm
         return candidate_representation.astype(post_author_embedding.dtype)`}</CodeBlock>
 
-            <SubHeading id="transformer">Ranking — Grok-Based Transformer</SubHeading>
+            <SubHeading id="transformer">Ranking: Grok-Based Transformer</SubHeading>
             <p className="text-foreground/80 leading-relaxed mb-4">
               The ranking model is a <strong>Grok-based transformer</strong> (ported from the Grok-1 open-source release).
               It takes three types of input tokens, concatenated into a single sequence:
@@ -313,7 +313,7 @@ embeddings = jnp.concatenate(
     [user_embeddings, history_embeddings, candidate_embeddings], axis=1
 )
 
-# Candidates CANNOT attend to each other — only to user context.
+# Candidates CANNOT attend to each other, only to user context.
 # This makes scores consistent regardless of what else is in the batch.
 model_output = self.model(
     embeddings,
@@ -322,7 +322,7 @@ model_output = self.model(
 )`}</CodeBlock>
 
             <Callout type="note">
-              A key design choice: <strong>candidates cannot attend to each other</strong> — only to the user context.
+              A key design choice: <strong>candidates cannot attend to each other</strong>, only to the user context.
               This means a post&apos;s score does not change depending on which other posts are in the same batch,
               making scores deterministic and cache-friendly.
             </Callout>
@@ -343,7 +343,7 @@ model_output = self.model(
             </div>
 
             <Callout type="info">
-              Actual weight values are <strong>runtime feature-switch parameters</strong>, not hardcoded constants — they can be tuned in production without redeploying. The simulator below uses illustrative relative weights to show directionality.
+              Actual weight values are <strong>runtime feature-switch parameters</strong>, not hardcoded constants; they can be tuned in production without redeploying. The simulator below uses illustrative relative weights to show directionality.
             </Callout>
 
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -353,7 +353,7 @@ model_output = self.model(
             <ScoringSimulator />
 
             <p className="text-foreground/80 leading-relaxed mb-4">
-              Post age is also a factor — bucketed into 1-hour bins up to 80 hours, giving fresher posts an advantage:
+              Post age is also a factor, bucketed into 1-hour bins up to 80 hours, giving fresher posts an advantage:
             </p>
 
             <CodeBlock lang="python">{`# phoenix/recsys_model.py
@@ -389,7 +389,7 @@ class SpamEapiLowFollowerClassifier(ContentClassifier):
         result = await self._sample(convo)   # calls Grok
         return await self._parse(post, result)
 
-# grox/engine.py — processes tasks from an async queue
+# grox/engine.py: processes tasks from an async queue
 async def _run(self, started_event: Event):
     await self._init_run()
     while not self._is_shutdown() or not self._task_queue.empty():
@@ -406,11 +406,11 @@ async def _run(self, started_event: Event):
               {[
                 {
                   title: "Strong Engagement Signals",
-                  items: ["Likes, retweets, and quote posts are the strongest positive signals", "Replies are weighted positively — a post that sparks conversation rises", "Long dwell time — if people stop scrolling, the RankingScorer rewards it via both dwell_score (discrete) and dwell_time (continuous)"],
+                  items: ["Likes, retweets, and quote posts are the strongest positive signals", "Replies are weighted positively: a post that sparks conversation rises", "Long dwell time: if people stop scrolling, the RankingScorer rewards it via both dwell_score (discrete) and dwell_time (continuous)"],
                 },
                 {
                   title: "Account Health",
-                  items: ["Mutual follows with your audience improves in-network retrieval", "Consistent recency — Thunder trims old posts, AgeFilter removes stale ones", "Video engagement (vqv_score) and photo expand are dedicated scorer signals — rich media matters"],
+                  items: ["Mutual follows with your audience improves in-network retrieval", "Consistent recency: Thunder trims old posts, AgeFilter removes stale ones", "Video engagement (vqv_score) and photo expand are dedicated scorer signals; rich media matters"],
                 },
                 {
                   title: "Discoverability",
@@ -442,11 +442,11 @@ async def _run(self, started_event: Event):
               {[
                 {
                   title: "Hard Filters (Instant Removal)",
-                  items: ["Posts from blocked/muted accounts removed before scoring — AuthorSocialgraphFilter", "Posts containing muted keywords removed entirely — MutedKeywordFilter", "Posts flagged by Grox as spam, violence, or PTOS — VFFilter", "Posts older than the retention threshold — AgeFilter"],
+                  items: ["Posts from blocked/muted accounts removed before scoring (AuthorSocialgraphFilter)", "Posts containing muted keywords removed entirely (MutedKeywordFilter)", "Posts flagged by Grox as spam, violence, or PTOS (VFFilter)", "Posts older than the retention threshold (AgeFilter)"],
                 },
                 {
                   title: "Soft Penalties (Score Reduction)",
-                  items: ["'Not Interested' — negative weight in RankingScorer pulls down similar content", "Block author and mute author carry the strongest negative weights in the formula", "Report is a dedicated negative signal", "not_dwelled is a negative signal — posts people scroll past fast are penalised", "RankingScorer's author diversity decay attenuates repeated authors — flooding the feed backfires"],
+                  items: ["'Not Interested': negative weight in RankingScorer pulls down similar content", "Block author and mute author carry the strongest negative weights in the formula", "Report is a dedicated negative signal", "not_dwelled is a negative signal; posts people scroll past fast are penalised", "RankingScorer's author diversity decay attenuates repeated authors; flooding the feed backfires"],
                 },
               ].map((card) => (
                 <div key={card.title} className="rounded-xl border border-red-500/20 bg-red-500/5 p-5">
@@ -476,7 +476,7 @@ async def _run(self, started_event: Event):
               {
                 num: "02",
                 title: "Candidate Isolation in Ranking",
-                body: "During transformer inference, candidates only attend to the user context — not to each other. This means scores are deterministic per (user, post) pair regardless of which other posts are being scored in the same batch.",
+                body: "During transformer inference, candidates only attend to the user context, not to each other. This means scores are deterministic per (user, post) pair regardless of which other posts are being scored in the same batch.",
                 code: `model_output = self.model(
     embeddings,
     padding_mask,
@@ -499,7 +499,7 @@ class HashConfig:
               {
                 num: "04",
                 title: "Multi-Action Prediction (22 signals)",
-                body: "The RankingScorer combines 22 predicted signals (20 discrete action probabilities + 2 continuous predictions like dwell_time and click_dwell_time). Predicting this many distinct engagement types — rather than a single 'relevance' score — lets the feed's character be tuned post-training just by adjusting runtime weight parameters, without retraining. The model outputs discrete logits via an unembedding matrix and continuous predictions via a separate sigmoid head.",
+                body: "The RankingScorer combines 22 predicted signals (20 discrete action probabilities + 2 continuous predictions like dwell_time and click_dwell_time). Predicting this many distinct engagement types, rather than a single 'relevance' score, lets the feed's character be tuned post-training just by adjusting runtime weight parameters, without retraining. The model outputs discrete logits via an unembedding matrix and continuous predictions via a separate sigmoid head.",
                 code: null,
               },
               {
@@ -521,7 +521,7 @@ class HashConfig:
               {
                 num: "06",
                 title: "In-Memory Real-Time Serving (Thunder)",
-                body: "Thunder avoids database reads for in-network content by maintaining post data entirely in memory, updated live from Kafka. This gives sub-millisecond retrieval latency for followed accounts — a crucial performance optimization at X's scale.",
+                body: "Thunder avoids database reads for in-network content by maintaining post data entirely in memory, updated live from Kafka. This gives sub-millisecond retrieval latency for followed accounts, a crucial performance optimization at X's scale.",
                 code: null,
               },
             ].map((d) => (
@@ -563,7 +563,7 @@ class HashConfig:
                 },
                 {
                   myth: "Going viral once permanently boosts your account",
-                  reality: "Scores are computed per (user, post) pair. Past virality carries no persistent account-level boost — each post is scored independently against each viewer's history.",
+                  reality: "Scores are computed per (user, post) pair. Past virality carries no persistent account-level boost; each post is scored independently against each viewer's history.",
                 },
               ].map(({ myth, reality }) => (
                 <div key={myth} className="rounded-xl border border-border overflow-hidden">
@@ -592,7 +592,7 @@ class HashConfig:
             </div>
           </div>
 
-          {/* Right sidebar — on this page */}
+          {/* Right sidebar: on this page */}
           <aside className="hidden xl:block w-52 flex-shrink-0">
             <TableOfContents />
           </aside>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-// Weights are illustrative — actual values are runtime params (not hardcoded in source)
+// Weights are illustrative; actual values are runtime params (not hardcoded in source)
 const actions = [
   { key: "favorite", label: "Favorite", weight: 1.0, type: "positive" },
   { key: "reply", label: "Reply", weight: 1.2, type: "positive" },

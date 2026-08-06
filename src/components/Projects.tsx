@@ -18,7 +18,7 @@ export default function Projects() {
             Systems that went live
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Platforms serving real traffic — national news sites, government
+            Platforms serving real traffic: national news sites, government
             infrastructure, election-night dashboards, and marketplaces. Built
             end to end, from architecture through deployment.
           </p>

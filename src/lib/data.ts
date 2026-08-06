@@ -7,7 +7,7 @@ export const PROFILE = {
   badge: "Available for new projects",
   location: "Attidiya, Dehiwala, Sri Lanka",
   /** Short location line for the hero credibility strip. */
-  base: "Colombo, Sri Lanka — working remotely worldwide",
+  base: "Colombo, Sri Lanka, working remotely worldwide",
   contact: {
     email: "nrenuja@gmail.com",
     phone: "+94 77 865 5349",
@@ -19,8 +19,8 @@ export const PROFILE = {
   /** Hero headline. Also the backbone of the site's SEO title. */
   headline: "I build AI-powered systems that actually ship to production.",
   /** Hero sub-headline and the source of the site meta description. */
-  pitch: `I help teams take AI and cloud-native ideas from "this could work" to something running in production — computer vision on edge devices, LLM-backed automation, and the Kubernetes and AWS infrastructure that keeps it all up.`,
-  about: `I'm a software engineer with 4+ years building production systems — cloud-native backends in Go and NestJS, real-time platforms on AWS and Kubernetes, and more recently machine learning that runs on real hardware rather than in a notebook.
+  pitch: `I help teams take AI and cloud-native ideas from "this could work" to something running in production: computer vision on edge devices, LLM-backed automation, and the Kubernetes and AWS infrastructure that keeps it all up.`,
+  about: `I'm a software engineer with 4+ years building production systems: cloud-native backends in Go and NestJS, real-time platforms on AWS and Kubernetes, and more recently machine learning that runs on real hardware rather than in a notebook.
 
 Most of my work has been the unglamorous half of the job: multi-tenant microservices for a government ministry, GitOps pipelines that let small teams deploy without fear, election dashboards that had to stay up on the one night that mattered, and detection models compiled to ONNX so they run on edge devices instead of a GPU cluster.
 
@@ -37,7 +37,7 @@ I'm currently finishing an MSc in Data Science and AI at the University of Morat
 export const BOOKING = {
   calLink: "nisalrenuja/30min",
   ctaLabel: "Book a call",
-  blurb: "30 minutes, free, no pitch — just scoping the problem.",
+  blurb: "30 minutes, free, no pitch. Just scoping the problem.",
 };
 
 export const STATS = [
@@ -55,7 +55,7 @@ export const SERVICES = [
       "Computer vision and LLM features taken from prototype to something your users actually touch.",
     deliverables: [
       "Detection and classification models in PyTorch / YOLO, exported to ONNX for edge inference",
-      "LLM and document-extraction pipelines — OCR, structured parsing, Gemini/Claude API integration",
+      "LLM and document-extraction pipelines: OCR, structured parsing, Gemini/Claude API integration",
       "Real-time inference services with WebSocket streaming and live dashboards",
     ],
   },
@@ -66,7 +66,7 @@ export const SERVICES = [
       "Backends designed to survive traffic spikes, team growth, and the second year of maintenance.",
     deliverables: [
       "Microservice and multi-tenant architectures in Go, NestJS, and TypeScript",
-      "AWS infrastructure as code — EKS, RDS/Aurora, Lambda, CloudFormation",
+      "AWS infrastructure as code: EKS, RDS/Aurora, Lambda, CloudFormation",
       "Data modelling, caching strategy, and API design (REST and GraphQL)",
     ],
   },
@@ -105,7 +105,7 @@ export const PROCESS = [
     step: "02",
     title: "Architect",
     description:
-      "A concrete technical plan — services, data model, infrastructure, and cost — before any real code is written. You get a document you could hand to another engineer.",
+      "A concrete technical plan covering services, data model, infrastructure, and cost, before any real code is written. You get a document you could hand to another engineer.",
   },
   {
     step: "03",
@@ -125,7 +125,7 @@ export const FAQS = [
   {
     question: "What does working together usually look like?",
     answer:
-      "Most engagements are either a fixed-scope project (a defined system built and handed over) or a part-time retainer of a set number of days per month for ongoing architecture and delivery work. Short advisory engagements — an architecture review or a feasibility assessment — are usually a week or two.",
+      "Most engagements are either a fixed-scope project (a defined system built and handed over) or a part-time retainer of a set number of days per month for ongoing architecture and delivery work. Short advisory engagements, such as an architecture review or a feasibility assessment, are usually a week or two.",
   },
   {
     question: "Where are you based, and does the timezone work?",
@@ -135,7 +135,7 @@ export const FAQS = [
   {
     question: "How do you price work?",
     answer:
-      "Fixed-scope projects are quoted as a fixed price once we've agreed the brief, so you're not exposed to my estimating errors. Retainers and advisory work are billed on a day rate. I'll give you a number after the first call — not before, because a quote without scope is guesswork.",
+      "Fixed-scope projects are quoted as a fixed price once we've agreed the brief, so you're not exposed to my estimating errors. Retainers and advisory work are billed on a day rate. I'll give you a number after the first call, not before, because a quote without scope is guesswork.",
   },
   {
     question: "How small is too small?",
@@ -145,7 +145,7 @@ export const FAQS = [
   {
     question: "Do I need to already know what AI I want?",
     answer:
-      "No, and it's usually better if you don't. A lot of what I do early on is working out which parts of a problem genuinely benefit from a model and which are better served by ordinary software — that distinction saves more money than any tooling choice.",
+      "No, and it's usually better if you don't. A lot of what I do early on is working out which parts of a problem genuinely benefit from a model and which are better served by ordinary software. That distinction saves more money than any tooling choice.",
   },
   {
     question: "What happens on the call?",

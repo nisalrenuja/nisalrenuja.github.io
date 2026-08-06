@@ -7,14 +7,14 @@ import { breadcrumbJsonLd, jsonLdProps, url } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Research & Deep Dives",
   description:
-    "Deep technical explorations of algorithms, systems, and ML models — built to be read, not just referenced.",
+    "Deep technical explorations of algorithms, systems, and ML models, built to be read, not just referenced.",
   alternates: { canonical: url("/research") },
 };
 
 const articles = [
   {
     slug: "x-algorithm",
-    title: "X For You Feed Algorithm — Deep Dive",
+    title: "X For You Feed Algorithm: Deep Dive",
     description:
       "A from-scratch interactive breakdown of how X decides what appears in your For You feed, based on the open-sourced algorithm code. Covers the full 8-stage pipeline, Phoenix ML model, Grox safety system, and scoring formula.",
     date: "May 2026",
@@ -26,7 +26,7 @@ const articles = [
 
 const upcoming = [
   { title: "YouTube Ranking Algorithm", tags: ["Algorithm", "ML", "Video"] },
-  { title: "TikTok For You Page — How It Actually Works", tags: ["Algorithm", "ML", "Recommendations"] },
+  { title: "TikTok For You Page: How It Actually Works", tags: ["Algorithm", "ML", "Recommendations"] },
   { title: "How LinkedIn Decides Your Feed", tags: ["Algorithm", "Social", "ML"] },
 ];
 
@@ -58,7 +58,7 @@ export default function ResearchPage() {
             Research & Deep Dives
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
-            Technical explorations of real systems — algorithms, ML models, and architectures
+            Technical explorations of real systems: algorithms, ML models, and architectures
             that power the products we use every day. Built to be read, not just referenced.
           </p>
         </div>

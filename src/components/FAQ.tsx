@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 
 /**
  * Built on native <details>/<summary> rather than a JS accordion so the answers
- * are in the DOM for crawlers and work with JS disabled — this section is also
+ * are in the DOM for crawlers and work with JS disabled. This section is also
  * the source of the FAQPage structured data in the layout.
  */
 export default function FAQ() {

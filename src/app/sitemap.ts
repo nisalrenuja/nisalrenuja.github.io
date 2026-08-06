@@ -5,7 +5,7 @@ export const dynamic = 'force-static'
 
 /**
  * Real routes only. The previous version listed `#anchor` URLs, which search
- * engines fold back into the page they belong to — they never index separately.
+ * engines fold back into the page they belong to; they never index separately.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()

@@ -14,7 +14,7 @@ const highlights = [
     title: "X For You Feed Algorithm",
     subtitle: "Deep Dive",
     description:
-      "How X decides what appears in your For You feed — the full 8-stage pipeline, Phoenix ML model, Grox safety system, and interactive scoring simulator.",
+      "How X decides what appears in your For You feed: the full 8-stage pipeline, Phoenix ML model, Grox safety system, and interactive scoring simulator.",
     tags: ["Rust", "Python/JAX", "Transformer", "Recommendation"],
     readTime: "~20 min",
     featured: true,
@@ -46,7 +46,7 @@ export default function ResearchSection() {
         </div>
 
         <p className="text-muted-foreground text-lg max-w-2xl -mt-6">
-          Technical explorations of algorithms, ML models, and systems powering the products we use every day —
+          Technical explorations of algorithms, ML models, and systems powering the products we use every day,
           with interactive visualizations and real source code.
         </p>
 
@@ -76,7 +76,7 @@ export default function ResearchSection() {
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">{item.label}</p>
                       <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors leading-tight">
                         {item.title}
-                        <span className="text-muted-foreground font-normal"> — {item.subtitle}</span>
+                        <span className="text-muted-foreground font-normal">: {item.subtitle}</span>
                       </h3>
                     </div>
 
@@ -118,7 +118,7 @@ export default function ResearchSection() {
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Coming Soon</p>
                 <h3 className="text-xl font-bold text-foreground mb-2">YouTube Ranking Algorithm</h3>
                 <p className="text-sm text-muted-foreground">
-                  How YouTube decides which videos to surface — candidate generation, ranking, and post-processing filters.
+                  How YouTube decides which videos to surface: candidate generation, ranking, and post-processing filters.
                 </p>
               </div>
               <span className="mt-6 text-xs px-3 py-1.5 rounded-full bg-muted text-muted-foreground font-medium">In Progress</span>

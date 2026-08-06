@@ -7,7 +7,7 @@ import { SITE_URL, OG_IMAGE, identityJsonLd, jsonLdProps } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-const title = `${PROFILE.name} — ${PROFILE.title}`;
+const title = `${PROFILE.name} | ${PROFILE.title}`;
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: `${PROFILE.name} — ${PROFILE.title}`,
+        alt: `${PROFILE.name}, ${PROFILE.title}`,
       },
     ],
   },

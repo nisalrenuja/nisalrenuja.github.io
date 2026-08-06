@@ -112,7 +112,7 @@ export default function Hero() {
             </div>
           </div>
           <figcaption className="sr-only">
-            {PROFILE.name} — {PROFILE.title}
+            {PROFILE.name}, {PROFILE.title}
           </figcaption>
         </motion.figure>
       </div>

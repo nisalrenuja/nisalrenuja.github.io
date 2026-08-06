@@ -3,7 +3,7 @@ import { PROFILE, SERVICES, FAQS } from "./data";
 export const SITE_URL = "https://nisalrenuja.github.io";
 export const OG_IMAGE = `${SITE_URL}/images/profile-pic.jpg`;
 
-/** Absolute URL for a route — schema.org `@id`s and canonicals both need one. */
+/** Absolute URL for a route; schema.org `@id`s and canonicals both need one. */
 export const url = (path = "/") => new URL(path, SITE_URL).toString();
 
 const person = {
@@ -77,7 +77,7 @@ const person = {
 const professionalService = {
   "@type": "ProfessionalService",
   "@id": `${SITE_URL}/#service`,
-  name: `${PROFILE.name} — ${PROFILE.title}`,
+  name: `${PROFILE.name}, ${PROFILE.title}`,
   description: PROFILE.pitch,
   url: SITE_URL,
   image: OG_IMAGE,
@@ -127,7 +127,7 @@ const faqPage = {
   })),
 };
 
-/** Identity and offer. Safe on every page — rendered once from the root layout. */
+/** Identity and offer. Safe on every page, rendered once from the root layout. */
 export const identityJsonLd = {
   "@context": "https://schema.org",
   "@graph": [person, professionalService, website],
@@ -135,7 +135,7 @@ export const identityJsonLd = {
 
 /**
  * FAQ rich results. Only valid on a page where the questions and answers are
- * actually visible, so this belongs to the landing page alone — not the layout.
+ * actually visible, so this belongs to the landing page alone, not the layout.
  */
 export const faqJsonLd = {
   "@context": "https://schema.org",
