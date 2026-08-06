@@ -1,27 +1,31 @@
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
+import Stats from "@/components/Stats";
+import Services from "@/components/Services";
+import Process from "@/components/Process";
 import Projects from "@/components/Projects";
-import Certifications from "@/components/Certifications";
+import About from "@/components/About";
+import ResearchSection from "@/components/ResearchSection";
+import BlogSection from "@/components/BlogSection";
+import FAQ from "@/components/FAQ";
+import CTABanner from "@/components/CTABanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import BlogSection from "@/components/BlogSection";
-import ResearchSection from "@/components/ResearchSection";
+import { faqJsonLd, jsonLdProps } from "@/lib/seo";
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
+      <script {...jsonLdProps(faqJsonLd)} />
       <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Education />
+      <Stats />
+      <Services />
+      <Process />
       <Projects />
-      <Certifications />
+      <About variant="teaser" />
       <ResearchSection />
       <BlogSection />
+      <FAQ />
+      <CTABanner />
       <Contact />
       <Footer />
     </main>

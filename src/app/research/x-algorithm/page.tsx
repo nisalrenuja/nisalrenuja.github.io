@@ -1,4 +1,3 @@
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
@@ -7,11 +6,13 @@ import StepExplorer from "./StepExplorer";
 import ScoringSimulator from "./ScoringSimulator";
 import TableOfContents from "./TableOfContents";
 import type { Metadata } from "next";
+import { breadcrumbJsonLd, jsonLdProps, url } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "X For You Feed Algorithm — Deep Dive",
   description:
     "A from-scratch interactive breakdown of how X decides what appears in your For You feed, based on the open-sourced algorithm code.",
+  alternates: { canonical: url("/research/x-algorithm") },
 };
 
 function CodeBlock({ children, lang = "rust" }: { children: string; lang?: string }) {
@@ -98,8 +99,14 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
 export default function XAlgorithmPage() {
   return (
     <main className="min-h-screen bg-background">
-      <Navigation />
-
+      <script
+        {...jsonLdProps(
+          breadcrumbJsonLd([
+            ["Research", "/research"],
+            ["X For You Feed Algorithm", "/research/x-algorithm"],
+          ])
+        )}
+      />
       <div className="pt-20 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">

@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { url } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
@@ -7,8 +8,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
     },
-    sitemap: 'https://nisalrenuja.github.io/sitemap.xml',
+    sitemap: url('/sitemap.xml'),
   }
 }

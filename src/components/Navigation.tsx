@@ -8,17 +8,13 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import BookCallButton from "./BookCallButton";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
-  { name: "Education", href: "#education" },
-  { name: "Projects", href: "#projects" },
-  { name: "Research", href: "/research" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" },
+  { name: "Services", href: "#services" },
+  { name: "Work", href: "#work" },
+  { name: "About", href: "/about" },
+  { name: "Writing", href: "/blog" },
 ];
 
 export default function Navigation() {
@@ -65,7 +61,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
+        <div className="hidden md:flex items-center gap-5 lg:gap-7 xl:gap-8">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -75,6 +71,7 @@ export default function Navigation() {
               {item.name}
             </Link>
           ))}
+          <BookCallButton variant="nav" />
         </div>
 
         {/* Mobile Nav - Hamburger Menu */}
@@ -120,6 +117,16 @@ export default function Navigation() {
                   </Link>
                 </motion.div>
               ))}
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.05 }}
+                className="pt-2"
+                onClick={() => setIsOpen(false)}
+              >
+                <BookCallButton variant="primary" className="w-full" />
+              </motion.div>
             </div>
           </motion.div>
         )}

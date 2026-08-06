@@ -1,24 +1,25 @@
+import type { Metadata } from "next";
 import { getMediumPosts } from "@/lib/medium";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation"; // Reusing navigation, might need adjustment if links are anchors
+import { breadcrumbJsonLd, jsonLdProps, url } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "Writing",
+  description:
+    "Articles on software engineering, cloud architecture, AI systems, and the practical side of shipping software — by Nisal Palliyaguru.",
+  alternates: { canonical: url("/blog") },
+};
 
 export default async function BlogPage() {
   const posts = await getMediumPosts();
 
   return (
     <main className="flex flex-col min-h-screen">
-      {/* 
-        Ideally we want a Header specific for inner pages or reuse Navigation.
-        Navigation is designed with #anchors for the home page.
-        However, Next.js Link handles scrolling to #id on the same page, or navigating to /#id.
-        Let's try reusing Navigation. 
-      */}
-      <Navigation /> 
-      
+      <script {...jsonLdProps(breadcrumbJsonLd([["Writing", "/blog"]]))} />
       <div className="pt-24 md:pt-32 pb-12 px-6">
          <Section className="py-0">
              <div className="flex flex-col gap-6 mb-12">

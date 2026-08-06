@@ -3,16 +3,17 @@
 import { PROFILE } from "@/lib/data";
 import { CVDownloadButton } from "./CVDownloadButton";
 import { SocialLinks } from "./SocialLinks";
+import BookCallButton from "./BookCallButton";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
-  { name: "Education", href: "#education" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Services", href: "/#services" },
+  { name: "Work", href: "/#work" },
+  { name: "About", href: "/about" },
+  { name: "Writing", href: "/blog" },
+  { name: "Research", href: "/research" },
+  { name: "FAQ", href: "/#faq" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {
@@ -22,12 +23,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Left - Brand */}
           <div className="sm:col-span-2 md:col-span-1">
-            <Link href="#home" className="text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors">
+            <Link href="/" className="text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors">
               {PROFILE.name}
             </Link>
             <p className="text-muted-foreground mt-2 text-sm">
               {PROFILE.tagline}
             </p>
+            <p className="text-muted-foreground mt-1 text-sm">{PROFILE.base}</p>
           </div>
 
           {/* Center - Navigation */}
@@ -48,8 +50,9 @@ export default function Footer() {
 
           {/* Right - Contact & Social */}
           <div>
-            <h3 className="font-semibold text-foreground mb-3 sm:mb-4">Connect</h3>
-            <div className="space-y-3 sm:space-y-4">
+            <h3 className="font-semibold text-foreground mb-3 sm:mb-4">Work with me</h3>
+            <div className="space-y-4">
+              <BookCallButton variant="nav" />
               <SocialLinks size="sm" />
               <CVDownloadButton variant="secondary" />
             </div>

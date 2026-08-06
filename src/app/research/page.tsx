@@ -1,13 +1,14 @@
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import type { Metadata } from "next";
+import { breadcrumbJsonLd, jsonLdProps, url } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Research & Deep Dives",
   description:
     "Deep technical explorations of algorithms, systems, and ML models — built to be read, not just referenced.",
+  alternates: { canonical: url("/research") },
 };
 
 const articles = [
@@ -32,8 +33,7 @@ const upcoming = [
 export default function ResearchPage() {
   return (
     <main className="flex flex-col min-h-screen">
-      <Navigation />
-
+      <script {...jsonLdProps(breadcrumbJsonLd([["Research", "/research"]]))} />
       <div className="pt-20 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">

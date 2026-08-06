@@ -9,10 +9,10 @@ export default function Contact() {
     <Section id="contact" className="py-16 md:py-24 bg-accent/5">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-6">
-          Let&apos;s work together
+          Other ways to reach me
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
-          Feel free to reach out if you&apos;re looking for a developer, have a question, or just want to connect.
+          If a calendar invite feels premature, email or a message works just as well.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto px-4">

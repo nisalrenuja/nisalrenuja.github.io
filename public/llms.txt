@@ -1,0 +1,57 @@
+# Nisal Palliyaguru
+
+> AI & Cloud-Native Software Engineer based in Colombo, Sri Lanka, working
+> remotely worldwide. Takes AI and cloud-native systems from prototype to
+> production — computer vision on edge devices, LLM-backed automation, and the
+> AWS and Kubernetes infrastructure underneath.
+
+Available for new projects. Book a 30-minute call: https://cal.com/nisalrenuja
+
+## Services
+
+- **AI Product Build** — computer vision and LLM features shipped to real users.
+  PyTorch/YOLO detection models exported to ONNX for edge inference, OCR and
+  document-extraction pipelines, real-time inference with WebSocket streaming.
+- **Cloud & System Architecture** — microservice and multi-tenant architectures
+  in Go, NestJS and TypeScript; AWS infrastructure as code across EKS, RDS/Aurora,
+  Lambda and CloudFormation; REST and GraphQL API design.
+- **Platform & DevOps** — Kubernetes and GitOps with Argo CD, CI/CD pipelines,
+  containerisation, observability and cost tuning on existing AWS estates.
+- **Technical Advisory** — architecture and code review, build-vs-buy assessment
+  for AI features, technical due diligence, team mentoring.
+
+## Engagement
+
+- Fixed-scope projects (quoted fixed price after a written brief), part-time
+  retainers billed by the day, or short advisory engagements of a week or two.
+- Based in Colombo, Sri Lanka (GMT+5:30). Overlaps a full European working day,
+  the Middle East and Asia, and early US mornings. Remote or hybrid throughout.
+- First call is 30 minutes and free — scoping and feasibility, not a sales pitch.
+
+## Background
+
+- 4+ years building production systems across 4 engineering roles, 2 of them
+  senior or lead.
+- Currently Software Engineer at Econsulate: real-time UAV/UGV sensor dashboards,
+  OCR + Gemini API resume extraction, multi-tenant microservices for a Sri Lankan
+  government ministry, PyTorch/YOLO detection models deployed via ONNX to edge.
+- Previously Senior Software Engineer at Derana Macroentertainment (Macro Labs):
+  Ada Derana 24x7 tri-language news platforms, ImpactNet civil-society platform on
+  Kubernetes with GitOps, national election-night data visualisation, TopADS
+  video classifieds marketplace.
+- MSc in Data Science and Artificial Intelligence, University of Moratuwa
+  (in progress). BSc Computing (Software Engineering), Curtin University, Perth.
+- AWS Academy certifications in Data Engineering, Cloud Data Pipelines, and
+  Microservices/CI-CD. NVIDIA Deep Learning.
+- BestWeb.lk 2024 Merit awards for news platforms built at Macro Labs.
+
+## Links
+
+- Site: https://nisalrenuja.github.io
+- About and full background: https://nisalrenuja.github.io/about
+- Selected work: https://nisalrenuja.github.io/#work
+- Research and technical deep dives: https://nisalrenuja.github.io/research
+- Writing: https://nisalrenuja.github.io/blog
+- GitHub: https://github.com/nisalrenuja
+- LinkedIn: https://linkedin.com/in/nisalrenuja
+- Email: nrenuja@gmail.com

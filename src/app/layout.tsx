@@ -3,11 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import { PROFILE } from "@/lib/data";
+import { SITE_URL, OG_IMAGE, identityJsonLd, jsonLdProps } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-const siteUrl = "https://nisalrenuja.github.io";
-const ogImage = `${siteUrl}/images/profile-pic.jpg`;
+const title = `${PROFILE.name} — ${PROFILE.title}`;
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -17,33 +17,29 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: `${PROFILE.name} - ${PROFILE.title}`,
+    default: title,
     template: `%s | ${PROFILE.name}`,
   },
-  description: PROFILE.about.split("\n\n")[0],
+  description: PROFILE.pitch,
   keywords: [
+    "AI engineer for hire",
+    "hire AI engineer Sri Lanka",
+    "AI consultant Colombo",
+    "cloud-native architect",
+    "production machine learning",
+    "computer vision engineer",
+    "LLM integration consultant",
+    "MLOps consultant",
+    "AWS solutions architect Sri Lanka",
+    "Kubernetes consultant",
+    "microservices architect",
+    "freelance software engineer Sri Lanka",
+    "Go developer",
+    "NestJS developer",
+    "Next.js developer",
     "Nisal Palliyaguru",
-    "Software Engineer",
-    "Full Stack Developer",
-    "Cloud Native",
-    "AWS Solutions Architect",
-    "React Developer",
-    "Next.js",
-    "TypeScript",
-    "Go Developer",
-    "DevOps Engineer",
-    "Microservices",
-    "Data Science",
-    "Machine Learning",
-    "AI Engineer",
-    "Sri Lanka Software Engineer",
-    "Backend Developer",
-    "Frontend Developer",
-    "Kubernetes",
-    "Docker",
-    "NestJS",
   ],
   authors: [{ name: PROFILE.name, url: PROFILE.socials.github }],
   creator: PROFILE.name,
@@ -62,25 +58,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
-    title: `${PROFILE.name} - ${PROFILE.title}`,
-    description: PROFILE.about.split("\n\n")[0],
+    url: SITE_URL,
+    title,
+    description: PROFILE.pitch,
     siteName: PROFILE.name,
     images: [
       {
-        url: ogImage,
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: `${PROFILE.name} - Software Engineer Portfolio`,
+        alt: `${PROFILE.name} — ${PROFILE.title}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${PROFILE.name} - ${PROFILE.title}`,
-    description: PROFILE.about.split("\n\n")[0],
-    creator: "@nisalrenuja", // Update with your Twitter handle if you have one
-    images: [ogImage],
+    title,
+    description: PROFILE.pitch,
+    creator: "@nisalrenuja",
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
@@ -94,7 +90,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: SITE_URL,
   },
   category: "technology",
 };
@@ -116,87 +112,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: PROFILE.name,
-              givenName: PROFILE.firstName,
-              familyName: PROFILE.lastName,
-              jobTitle: PROFILE.title,
-              description: PROFILE.about.split("\n\n")[0],
-              email: PROFILE.contact.email,
-              telephone: PROFILE.contact.phone,
-              url: siteUrl,
-              image: ogImage,
-              sameAs: [PROFILE.socials.github, PROFILE.socials.linkedin],
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Dehiwala",
-                addressRegion: "Western Province",
-                addressCountry: "LK",
-              },
-              alumniOf: [
-                {
-                  "@type": "EducationalOrganization",
-                  name: "University of Moratuwa",
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Moratuwa",
-                    addressCountry: "LK",
-                  },
-                },
-                {
-                  "@type": "EducationalOrganization",
-                  name: "Curtin University",
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Perth",
-                    addressCountry: "AU",
-                  },
-                },
-              ],
-              knowsAbout: [
-                "Software Engineering",
-                "Cloud Computing",
-                "AWS",
-                "Microservices",
-                "DevOps",
-                "React",
-                "Next.js",
-                "TypeScript",
-                "Go",
-                "Python",
-                "Data Science",
-                "Machine Learning",
-                "Kubernetes",
-                "Docker",
-              ],
-              hasCredential: [
-                {
-                  "@type": "EducationalOccupationalCredential",
-                  name: "AWS Academy Graduate – Cloud Data Pipeline Builder",
-                  credentialCategory: "certificate",
-                  recognizedBy: {
-                    "@type": "Organization",
-                    name: "Amazon Web Services",
-                  },
-                },
-                {
-                  "@type": "EducationalOccupationalCredential",
-                  name: "AWS Academy Graduate – Data Engineering",
-                  credentialCategory: "certificate",
-                  recognizedBy: {
-                    "@type": "Organization",
-                    name: "Amazon Web Services",
-                  },
-                },
-              ],
-            }),
-          }}
-        />
+        <script {...jsonLdProps(identityJsonLd)} />
       </head>
       <body className={inter.className}>
         <Navigation />
