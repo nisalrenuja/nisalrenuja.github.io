@@ -20,7 +20,7 @@ export const PROFILE = {
   headline: "I build AI-powered systems that actually ship to production.",
   /** Hero sub-headline and the source of the site meta description. */
   pitch: `I help teams take AI and cloud-native ideas from "this could work" to something running in production: computer vision on edge devices, LLM-backed automation, and the Kubernetes and AWS infrastructure that keeps it all up.`,
-  about: `I'm a software engineer with 4+ years building production systems: cloud-native backends in Go and NestJS, real-time platforms on AWS and Kubernetes, and more recently machine learning that runs on real hardware rather than in a notebook.
+  about: `I'm a software engineer with 10+ years building production systems: cloud-native backends in Go and NestJS, real-time platforms on AWS and Kubernetes, and more recently machine learning that runs on real hardware rather than in a notebook.
 
 Most of my work has been the unglamorous half of the job: multi-tenant microservices for a government ministry, GitOps pipelines that let small teams deploy without fear, election dashboards that had to stay up on the one night that mattered, and detection models compiled to ONNX so they run on edge devices instead of a GPU cluster.
 
@@ -41,10 +41,10 @@ export const BOOKING = {
 };
 
 export const STATS = [
-  { value: "4+", label: "Years shipping production systems" },
-  { value: "5", label: "Major platforms built end to end" },
-  { value: "4", label: "Engineering roles, 2 as senior/lead" },
-  { value: "2024", label: "BestWeb.lk Merit award" },
+  { value: "10+", label: "Years building software" },
+  { value: "40+", label: "Clients served" },
+  { value: "50+", label: "Projects shipped" },
+  { value: "3", label: "Continents worked across" },
 ];
 
 export const SERVICES = [

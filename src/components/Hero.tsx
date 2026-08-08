@@ -58,7 +58,7 @@ export default function Hero() {
           >
             <span className="font-medium text-foreground">{PROFILE.name}</span>
             <span aria-hidden="true">·</span>
-            <span>4+ years building</span>
+            <span>10+ years building</span>
             <span aria-hidden="true">·</span>
             <span className="inline-flex items-center gap-1.5">
               <MapPin size={14} aria-hidden="true" />
