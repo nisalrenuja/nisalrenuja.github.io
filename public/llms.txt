@@ -30,8 +30,10 @@ Available for new projects. Book a 30-minute call: https://cal.com/nisalrenuja
 
 ## Background
 
-- 10+ years building production systems, 40+ clients served and 50+ projects
-  shipped across 4 engineering roles, 2 of them senior or lead.
+- 10+ years building software, starting with freelance work in 2015 and
+  continuing alongside four engineering roles, two of them senior or lead.
+- 40+ clients served and 50+ projects shipped across Asia, Europe and
+  North America.
 - Currently Software Engineer at Econsulate: real-time UAV/UGV sensor dashboards,
   OCR + Gemini API resume extraction, multi-tenant microservices for a Sri Lankan
   government ministry, PyTorch/YOLO detection models deployed via ONNX to edge.

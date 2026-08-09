@@ -20,7 +20,7 @@ export const PROFILE = {
   headline: "I build AI-powered systems that actually ship to production.",
   /** Hero sub-headline and the source of the site meta description. */
   pitch: `I help teams take AI and cloud-native ideas from "this could work" to something running in production: computer vision on edge devices, LLM-backed automation, and the Kubernetes and AWS infrastructure that keeps it all up.`,
-  about: `I'm a software engineer with 10+ years building production systems: cloud-native backends in Go and NestJS, real-time platforms on AWS and Kubernetes, and more recently machine learning that runs on real hardware rather than in a notebook.
+  about: `I'm a software engineer with 10+ years building production systems: cloud-native backends in Go and NestJS, real-time platforms on AWS and Kubernetes, and more recently machine learning that runs on real hardware rather than in a notebook. I started freelancing in 2015 and never stopped, which is where most of the 40+ clients came from.
 
 Most of my work has been the unglamorous half of the job: multi-tenant microservices for a government ministry, GitOps pipelines that let small teams deploy without fear, election dashboards that had to stay up on the one night that mattered, and detection models compiled to ONNX so they run on edge devices instead of a GPU cluster.
 
@@ -259,6 +259,20 @@ export const EXPERIENCE = [
       "Developed backend services with Django, React.js, and cloud technologies.",
     ],
     tags: ["Django", "React.js", "MySQL", "Express.js"],
+  },
+  {
+    role: "Freelance Software Developer",
+    company: "Independent",
+    period: "2015 – Present",
+    location: "Remote",
+    locationType: "Remote",
+    achievements: [
+      "Delivered 50+ projects for 40+ clients across Asia, Europe, and North America, from single-page marketing sites to full web platforms.",
+      "Worked directly with founders and small teams: scoping the problem, building it, deploying it, and handing over something they could run themselves.",
+      "Built and maintained web applications in JavaScript, React.js, Node.js, and Python, with the hosting, domains, and analytics that go around them.",
+      "Ongoing alongside full-time roles, which is where the client and project counts come from.",
+    ],
+    tags: ["JavaScript", "React.js", "Node.js", "Python", "MySQL"],
   },
 ];
 
