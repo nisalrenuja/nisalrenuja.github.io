@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getMediumPosts } from "@/lib/medium";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
@@ -18,12 +17,12 @@ export default async function BlogPage() {
   const posts = await getMediumPosts();
 
   return (
-    <main className="flex flex-col min-h-screen">
+    <main id="main" className="flex flex-col min-h-screen">
       <script {...jsonLdProps(breadcrumbJsonLd([["Writing", "/blog"]]))} />
       <div className="pt-24 md:pt-32 pb-12 px-6">
          <Section className="py-0">
              <div className="flex flex-col gap-6 mb-12">
-                 <Link href="/#blog" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors w-fit">
+                 <Link href="/#blog" className="inline-flex min-h-[44px] items-center text-muted-foreground hover:text-foreground transition-colors w-fit">
                     <ArrowLeft size={16} className="mr-2" /> Back to Home
                  </Link>
                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
@@ -66,23 +65,26 @@ export default async function BlogPage() {
                             <span className="px-2 py-1 rounded-full bg-muted/50 font-medium">Medium</span>
                         </div>
                         
-                        <h3 className="text-xl font-bold mb-3 line-clamp-2 leading-tight group-hover:text-accent transition-colors">
+                        {/* h2, not h3: on this page the cards sit directly under
+                            the "All Articles" h1, with no section heading between. */}
+                        <h2 className="text-xl font-bold mb-3 line-clamp-2 leading-tight group-hover:text-accent transition-colors">
                             <a href={post.link} target="_blank" rel="noopener noreferrer">
                             {post.title}
                             </a>
-                        </h3>
+                        </h2>
                         
-                        <div 
-                            className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-grow"
-                            dangerouslySetInnerHTML={{ __html: post.contentSnippet.substring(0, 150) + "..." }}
-                        />
+                        {/* contentSnippet is tag-stripped plain text from rss-parser, so
+                            render it as text rather than injecting third-party HTML. */}
+                        <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-grow">
+                            {post.contentSnippet.substring(0, 150) + "..."}
+                        </p>
 
                         <div className="pt-4 mt-auto border-t border-border/50 flex justify-between items-center">
                             <a
                             href={post.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center text-sm font-medium text-foreground hover:text-accent transition-colors"
+                            className="inline-flex min-h-[44px] items-center text-sm font-medium text-foreground hover:text-accent transition-colors"
                             >
                             Read Article <ExternalLink size={14} className="ml-1" />
                             </a>

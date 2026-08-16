@@ -14,7 +14,7 @@ export function CVDownloadButton({ variant = "primary" }: CVDownloadButtonProps)
       <a
         href={PROFILE.cvUrl}
         download="Nisal_Palliyaguru_CV.pdf"
-        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+        className="inline-flex min-h-[44px] items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
       >
         <Download size={16} />
         Download CV

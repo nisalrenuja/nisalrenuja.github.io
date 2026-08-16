@@ -1,5 +1,8 @@
 import Parser from "rss-parser";
 
+/** Medium puts the full post body in `content:encoded`, which isn't in rss-parser's base Item type. */
+type FeedItem = Parser.Item & { "content:encoded"?: string };
+
 type MediumPost = {
   title: string;
   link: string;
@@ -20,7 +23,7 @@ export async function getMediumPosts(): Promise<MediumPost[]> {
     
     // Process the items to extract a thumbnail if possible
     // Medium feeds usually put the image in the content
-    const posts = feed.items.map((item: any) => {
+    const posts = feed.items.map((item: FeedItem) => {
       // Simple regex to extract the first image tag src if it exists in content
       const imgMatch = item['content:encoded']?.match(/<img[^>]+src="([^">]+)"/);
       const output: MediumPost = {

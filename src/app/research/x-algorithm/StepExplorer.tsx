@@ -9,7 +9,7 @@ const steps = [
     num: 1,
     title: "Query Hydration",
     icon: Database,
-    color: "#6366f1",
+    color: "#4F46E5",
     summary: "Load everything about you before fetching a single post.",
     details: [
       "Your engagement history: likes, replies, reposts, dwell time",
@@ -32,7 +32,7 @@ for (hydrator, result) in hydrators.iter().zip(results) {
     num: 2,
     title: "Candidate Sourcing",
     icon: Layers,
-    color: "#8b5cf6",
+    color: "#7c3aed",
     summary: "Collect raw candidates from two parallel sources simultaneously.",
     details: [
       "Thunder: in-memory store, returns posts from accounts you follow with sub-millisecond latency",
@@ -50,7 +50,7 @@ for (hydrator, result) in hydrators.iter().zip(results) {
     num: 3,
     title: "Candidate Hydration",
     icon: Database,
-    color: "#06b6d4",
+    color: "#0e7490",
     summary: "Enrich every candidate with additional metadata in parallel.",
     details: [
       "Core post content (text, media, entities)",
@@ -75,7 +75,7 @@ for (hydrator, result) in hydrators.iter().zip(results) {
     num: 4,
     title: "Pre-Scoring Filters",
     icon: Filter,
-    color: "#f59e0b",
+    color: "#b45309",
     summary: "Sequential filters narrow the candidate set; anything removed never reaches scoring.",
     details: [
       "DropDuplicatesFilter: same post ID seen more than once",
@@ -116,7 +116,7 @@ let filters: Vec<Box<dyn Filter<...>>> = vec![
     num: 5,
     title: "Scoring & Ranking",
     icon: Zap,
-    color: "#10b981",
+    color: "#047857",
     summary: "Three scorers run sequentially. RankingScorer is a consolidated scorer that handles weighting, author diversity, and OON adjustment all in one pass.",
     details: [
       "PhoenixScorer: calls the Grok-based transformer via gRPC to get per-action engagement probabilities for each candidate",
@@ -140,7 +140,7 @@ let scorers: Vec<Box<dyn Scorer<...>>> = vec![
     num: 6,
     title: "Selection & Blending",
     icon: Shuffle,
-    color: "#ec4899",
+    color: "#db2777",
     summary: "BlenderSelector partitions candidates and weaves together posts, ads, and modules.",
     details: [
       "Candidates are partitioned by type: posts, ads, WTF modules, prompts",
@@ -165,7 +165,7 @@ insert_who_to_follow(&mut blended, wtf_modules);`,
     num: 7,
     title: "Post-Selection Filters",
     icon: Shield,
-    color: "#ef4444",
+    color: "#dc2626",
     summary: "Three final safety filters run after the post-selection hydration pass before the feed is returned.",
     details: [
       "VFFilter: removes posts flagged by the visibility filtering service (deleted, spam, violence, gore) at serve time",
@@ -188,7 +188,7 @@ let post_selection_filters: Vec<Box<dyn Filter<...>>> = vec![
     num: 8,
     title: "Side Effects",
     icon: Activity,
-    color: "#64748b",
+    color: "#475569",
     summary: "Async fire-and-forget tasks run after the response is sent, affecting future feeds, not this one.",
     details: [
       "Publish seen post IDs to Kafka so future requests skip them",
@@ -283,8 +283,8 @@ export default function StepExplorer() {
 
             <div>
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">Source (Rust)</p>
-              <pre className="rounded-lg bg-[#0d0d0d] border border-border/50 p-4 overflow-x-auto text-xs leading-relaxed">
-                <code className="text-[#a5b4fc] font-mono whitespace-pre">{step.code}</code>
+              <pre className="rounded-lg bg-code-background border border-border/60 p-4 overflow-x-auto text-xs leading-relaxed">
+                <code className="text-code-foreground font-mono whitespace-pre">{step.code}</code>
               </pre>
             </div>
           </div>
@@ -293,14 +293,14 @@ export default function StepExplorer() {
             <button
               onClick={() => setActive(Math.max(0, active - 1))}
               disabled={active === 0}
-              className="text-xs font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
+              className="inline-flex min-h-[44px] items-center text-xs font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
             >
               ← Previous step
             </button>
             <button
               onClick={() => setActive(Math.min(steps.length - 1, active + 1))}
               disabled={active === steps.length - 1}
-              className="text-xs font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
+              className="inline-flex min-h-[44px] items-center text-xs font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
             >
               Next step →
             </button>

@@ -20,12 +20,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main id="main" className="flex flex-col min-h-screen">
       <script {...jsonLdProps(breadcrumbJsonLd([["About", "/about"]]))} />
       <div className="pt-20 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-foreground transition-colors">
+            <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-foreground transition-colors">
               Home
             </Link>
             <span aria-hidden="true">/</span>

@@ -10,7 +10,7 @@ const highlights = [
   {
     slug: "/research/x-algorithm",
     label: "Algorithm",
-    color: "#6366f1",
+    color: "#4F46E5",
     title: "X For You Feed Algorithm",
     subtitle: "Deep Dive",
     description:

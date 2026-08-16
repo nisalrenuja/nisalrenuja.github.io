@@ -1,24 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
+
+const QUERY = "(prefers-reduced-motion: reduce)";
 
 /**
- * Hook to detect if the user prefers reduced motion
- * Respects the prefers-reduced-motion media query for accessibility
+ * Hook to detect if the user prefers reduced motion.
+ *
+ * `matchMedia` is an external store, so it is read through
+ * `useSyncExternalStore` rather than an effect that calls `setState` on mount:
+ * that pattern renders once with the wrong value and then immediately re-renders
+ * (and trips react-hooks/set-state-in-effect). The server snapshot is `false`,
+ * matching what a non-browser render can know.
+ *
  * @returns boolean indicating if reduced motion is preferred
  */
 export function useReducedMotion(): boolean {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
+  const subscribe = useCallback((onChange: () => void) => {
+    const mq = window.matchMedia(QUERY);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  return prefersReducedMotion;
+  return useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(QUERY).matches,
+    () => false
+  );
 }

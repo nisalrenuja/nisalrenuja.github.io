@@ -1,6 +1,5 @@
 import { getMediumPosts } from "@/lib/medium";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Section from "./Section";
 
@@ -64,17 +63,18 @@ export default async function BlogSection() {
                   </a>
                 </h3>
                 
-                <div 
-                  className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-grow"
-                  dangerouslySetInnerHTML={{ __html: post.contentSnippet.substring(0, 150) + "..." }}
-                />
+                {/* contentSnippet is tag-stripped plain text from rss-parser, so
+                    render it as text rather than injecting third-party HTML. */}
+                <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-grow">
+                  {post.contentSnippet.substring(0, 150) + "..."}
+                </p>
 
                 <div className="pt-4 mt-auto border-t border-border/50 flex justify-between items-center">
                    <a
                     href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-medium text-foreground hover:text-accent transition-colors"
+                    className="inline-flex min-h-[44px] items-center text-sm font-medium text-foreground hover:text-accent transition-colors"
                   >
                     Read Article <ExternalLink size={14} className="ml-1" />
                   </a>

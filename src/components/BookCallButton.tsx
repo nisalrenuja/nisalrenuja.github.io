@@ -24,8 +24,8 @@ const variantStyles: Record<Variant, string> = {
   nav: "inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-full hover:bg-accent-hover transition-all",
 };
 
-/** The site renders dark-only, so the embed is pinned to match rather than following the OS. */
-const calConfig = { theme: "dark", layout: "month_view" } as const;
+/** The site renders light-only, so the embed is pinned to match rather than following the OS. */
+const calConfig = { theme: "light", layout: "month_view" } as const;
 
 /** Pulls in the Cal.com embed, configures it, and warms the modal iframe. */
 async function loadCalEmbed() {

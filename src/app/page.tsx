@@ -14,7 +14,7 @@ import { faqJsonLd, jsonLdProps } from "@/lib/seo";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main id="main" className="flex flex-col min-h-screen">
       <script {...jsonLdProps(faqJsonLd)} />
       <Hero />
       <Stats />

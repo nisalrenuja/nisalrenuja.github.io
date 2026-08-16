@@ -14,6 +14,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
+  colorScheme: "light",
+  themeColor: "#ffffff",
 };
 
 export const metadata: Metadata = {
@@ -101,17 +103,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                document.documentElement.setAttribute('data-theme', 'dark');
-              })();
-            `,
-          }}
-        />
         <script {...jsonLdProps(identityJsonLd)} />
       </head>
       <body className={inter.className}>

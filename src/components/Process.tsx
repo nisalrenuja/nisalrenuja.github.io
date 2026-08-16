@@ -36,7 +36,9 @@ export default function Process() {
               className="flex gap-5 sm:gap-7 p-6 sm:p-7 rounded-2xl bg-background border border-border hover:border-accent transition-all"
             >
               <span
-                className="text-2xl sm:text-3xl font-bold text-accent/40 tabular-nums shrink-0"
+                // /40 measured 2.85:1 on white, just under the 3:1 large-text
+                // minimum; /55 clears it while keeping the numerals recessive.
+                className="text-2xl sm:text-3xl font-bold text-accent/55 tabular-nums shrink-0"
                 aria-hidden="true"
               >
                 {stage.step}

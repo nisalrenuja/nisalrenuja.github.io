@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 function CodeBlock({ children, lang = "rust" }: { children: string; lang?: string }) {
   return (
     <div className="my-4 rounded-xl overflow-hidden border border-border/60">
-      <div className="flex items-center justify-between bg-[#111] px-4 py-2 border-b border-border/40">
+      <div className="flex items-center justify-between bg-code-header px-4 py-2 border-b border-border/60">
         <span className="text-xs font-mono text-muted-foreground">{lang}</span>
       </div>
-      <pre className="bg-[#0d0d0d] p-4 overflow-x-auto">
-        <code className="text-[#a5b4fc] font-mono text-xs leading-relaxed whitespace-pre">{children}</code>
+      <pre className="bg-code-background p-4 overflow-x-auto">
+        <code className="text-code-foreground font-mono text-xs leading-relaxed whitespace-pre">{children}</code>
       </pre>
     </div>
   );
@@ -30,9 +30,9 @@ function CodeBlock({ children, lang = "rust" }: { children: string; lang?: strin
 
 function Callout({ type = "note", children }: { type?: "note" | "warning" | "info"; children: React.ReactNode }) {
   const styles = {
-    note: { bg: "bg-indigo-500/10", border: "border-indigo-500/30", label: "Note", color: "text-indigo-400" },
-    warning: { bg: "bg-amber-500/10", border: "border-amber-500/30", label: "Warning", color: "text-amber-400" },
-    info: { bg: "bg-cyan-500/10", border: "border-cyan-500/30", label: "Info", color: "text-cyan-400" },
+    note: { bg: "bg-indigo-500/10", border: "border-indigo-500/30", label: "Note", color: "text-indigo-700" },
+    warning: { bg: "bg-amber-500/10", border: "border-amber-500/30", label: "Warning", color: "text-amber-700" },
+    info: { bg: "bg-cyan-500/10", border: "border-cyan-500/30", label: "Info", color: "text-cyan-700" },
   };
   const s = styles[type];
   return (
@@ -98,7 +98,7 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
 
 export default function XAlgorithmPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main id="main" className="min-h-screen bg-background">
       <script
         {...jsonLdProps(
           breadcrumbJsonLd([
@@ -110,9 +110,9 @@ export default function XAlgorithmPage() {
       <div className="pt-20 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-foreground transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/research" className="hover:text-foreground transition-colors">Research</Link>
+            <Link href="/research" className="inline-flex min-h-[44px] items-center hover:text-foreground transition-colors">Research</Link>
             <span>/</span>
             <span className="text-foreground">X Algorithm Deep Dive</span>
           </nav>
@@ -347,7 +347,7 @@ model_output = self.model(
             </Callout>
 
             <p className="text-foreground/80 leading-relaxed mb-4">
-              Drag the sliders to see how adjusting each predicted signal moves the final score. Key additions vs. earlier descriptions: <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">retweet</code> (not "repost"), <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">vqv</code> (video quality view), <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">share_via_dm</code>, <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">quoted_vqv</code>, and <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">not_dwelled</code> as a negative signal.
+              Drag the sliders to see how adjusting each predicted signal moves the final score. Key additions vs. earlier descriptions: <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">retweet</code> (not &quot;repost&quot;), <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">vqv</code> (video quality view), <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">share_via_dm</code>, <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">quoted_vqv</code>, and <code className="text-accent text-sm bg-muted px-1.5 py-0.5 rounded">not_dwelled</code> as a negative signal.
             </p>
 
             <ScoringSimulator />
@@ -422,11 +422,11 @@ async def _run(self, started_event: Event):
                 },
               ].map((card) => (
                 <div key={card.title} className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5">
-                  <p className="text-sm font-bold text-emerald-400 mb-3">{card.title}</p>
+                  <p className="text-sm font-bold text-emerald-700 mb-3">{card.title}</p>
                   <ul className="space-y-2">
                     {card.items.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
-                        <span className="text-emerald-500 mt-0.5">✓</span>
+                        <span className="text-emerald-700 mt-0.5">✓</span>
                         {item}
                       </li>
                     ))}
@@ -450,11 +450,11 @@ async def _run(self, started_event: Event):
                 },
               ].map((card) => (
                 <div key={card.title} className="rounded-xl border border-red-500/20 bg-red-500/5 p-5">
-                  <p className="text-sm font-bold text-red-400 mb-3">{card.title}</p>
+                  <p className="text-sm font-bold text-red-700 mb-3">{card.title}</p>
                   <ul className="space-y-2">
                     {card.items.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
-                        <span className="text-red-500 mt-0.5">✗</span>
+                        <span className="text-red-700 mt-0.5">✗</span>
                         {item}
                       </li>
                     ))}
@@ -568,11 +568,11 @@ class HashConfig:
               ].map(({ myth, reality }) => (
                 <div key={myth} className="rounded-xl border border-border overflow-hidden">
                   <div className="px-5 py-3 bg-red-500/5 border-b border-border/50 flex items-start gap-3">
-                    <span className="text-red-400 font-bold text-sm flex-shrink-0 mt-0.5">Myth</span>
+                    <span className="text-red-700 font-bold text-sm flex-shrink-0 mt-0.5">Myth</span>
                     <p className="text-sm text-foreground/70 line-through">{myth}</p>
                   </div>
                   <div className="px-5 py-3 bg-emerald-500/5 flex items-start gap-3">
-                    <span className="text-emerald-400 font-bold text-sm flex-shrink-0 mt-0.5">Reality</span>
+                    <span className="text-emerald-700 font-bold text-sm flex-shrink-0 mt-0.5">Reality</span>
                     <p className="text-sm text-foreground/80">{reality}</p>
                   </div>
                 </div>

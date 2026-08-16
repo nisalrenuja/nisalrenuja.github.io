@@ -29,6 +29,13 @@ const actions = [
   { key: "not_dwelled", label: "Not Dwelled", weight: -1.0, type: "negative" },
 ];
 
+// Semantic colours, picked to clear WCAG AA against the light background these
+// render on. The 500-level shades used before were tuned for a dark page and
+// drop to ~2.5:1 on white.
+const POSITIVE = "#047857";
+const NEGATIVE = "#dc2626";
+const NEUTRAL = "#4F46E5";
+
 export default function ScoringSimulator() {
   const [probs, setProbs] = useState<Record<string, number>>(
     Object.fromEntries(actions.map((a) => [a.key, a.type === "positive" ? 0.3 : 0.05]))
@@ -39,7 +46,7 @@ export default function ScoringSimulator() {
   const minScore = actions.filter(a => a.type === "negative").reduce((s, a) => s + a.weight, 0);
   const normalized = (score - minScore) / (maxScore - minScore);
 
-  const scoreColor = score > 1 ? "#10b981" : score > 0 ? "#6366f1" : "#ef4444";
+  const scoreColor = score > 1 ? POSITIVE : score > 0 ? NEUTRAL : NEGATIVE;
 
   return (
     <div className="my-8 rounded-xl border border-border overflow-hidden">
@@ -84,7 +91,7 @@ export default function ScoringSimulator() {
 
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
           <div>
-            <p className="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-3">Positive Signals</p>
+            <p className="text-xs font-semibold text-emerald-700 uppercase tracking-widest mb-3">Positive Signals</p>
             {actions
               .filter((a) => a.type === "positive")
               .map((action) => (
@@ -97,7 +104,7 @@ export default function ScoringSimulator() {
               ))}
           </div>
           <div>
-            <p className="text-xs font-semibold text-red-500 uppercase tracking-widest mb-3">Negative Signals</p>
+            <p className="text-xs font-semibold text-red-700 uppercase tracking-widest mb-3">Negative Signals</p>
             {actions
               .filter((a) => a.type === "negative")
               .map((action) => (
@@ -145,7 +152,7 @@ function ActionSlider({
           </span>
           <span
             className="text-xs font-mono font-semibold w-12 text-right"
-            style={{ color: isPositive ? "#10b981" : "#ef4444" }}
+            style={{ color: isPositive ? POSITIVE : NEGATIVE }}
           >
             {contribution >= 0 ? "+" : ""}{contribution.toFixed(2)}
           </span>
@@ -160,7 +167,7 @@ function ActionSlider({
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="w-full h-1.5 rounded-full appearance-none bg-muted cursor-pointer"
         style={{
-          accentColor: isPositive ? "#10b981" : "#ef4444",
+          accentColor: isPositive ? POSITIVE : NEGATIVE,
         }}
       />
       <div className="flex justify-between text-[10px] text-muted-foreground mt-0.5">

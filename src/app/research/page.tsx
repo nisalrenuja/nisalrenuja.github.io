@@ -32,12 +32,12 @@ const upcoming = [
 
 export default function ResearchPage() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main id="main" className="flex flex-col min-h-screen">
       <script {...jsonLdProps(breadcrumbJsonLd([["Research", "/research"]]))} />
       <div className="pt-20 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-foreground transition-colors">Home</Link>
             <span>/</span>
             <span className="text-foreground">Research</span>
           </nav>
@@ -49,7 +49,7 @@ export default function ResearchPage() {
         <div className="mb-14">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+            className="inline-flex min-h-[44px] items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
           >
             <ArrowLeft size={14} />
             Back to Home

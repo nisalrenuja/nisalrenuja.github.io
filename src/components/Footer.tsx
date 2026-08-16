@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Left - Brand */}
           <div className="sm:col-span-2 md:col-span-1">
-            <Link href="/" className="text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors">
+            <Link href="/" className="inline-flex min-h-[44px] items-center text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors">
               {PROFILE.name}
             </Link>
             <p className="text-muted-foreground mt-2 text-sm">
@@ -33,20 +33,20 @@ export default function Footer() {
           </div>
 
           {/* Center - Navigation */}
-          <div>
+          <nav aria-label="Footer">
             <h3 className="font-semibold text-foreground mb-3 sm:mb-4">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-x-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-accent transition-colors py-1"
+                  className="flex min-h-[44px] items-center text-sm text-muted-foreground hover:text-accent transition-colors"
                 >
                   {link.name}
                 </Link>
               ))}
             </div>
-          </div>
+          </nav>
 
           {/* Right - Contact & Social */}
           <div>
